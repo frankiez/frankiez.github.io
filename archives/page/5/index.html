@@ -1,0 +1,737 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 5 页 | 归档 | 超霸气软件研究所</title>
+  <meta name="author" content="frankiez">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="超霸气软件研究所"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="超霸气软件研究所" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">超霸气软件研究所</a></h1>
+  <h2><a href="/">研究前端技术</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">归档</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-18T01:16:10.000Z"><a href="/2013/04/18/123/">4月 18 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/18/123/">QObject: Cannot create children for a parent that is in a different thread</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>困扰了我一晚上，怀疑是插件机制的问题，然后把插件都去掉了，直接把代码写进线程里还是有问题。</p>
+<p>最后还是今天早上搞明白的，在run()里用new新建基于qobject的对象时，千万别传入this指针啊，那是主线程的指针，相当于在子线程里为主线程建立了对象，所以出现跨线程警告。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-17T11:00:11.000Z"><a href="/2013/04/17/121/">4月 17 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/17/121/">获取打印队列的新方法</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>之前一直是采用EnumJobs轮询的方法来获取，但这样由于存在时间间隔，无法获取瞬时的状态变化。</p>
+<p>刚才看到还能用FindFirstPrinterChangeNotification的方式，好像更好一点，但获取网络打印机的队列状态都是不怎么正常，希望以后能找到更好的方法。</p>
+<p><a href="http://www.codeproject.com/csharp/qPrintcomponent2.asp" target="_blank" rel="external">http://www.codeproject.com/csharp/qPrintcomponent2.asp</a><br><a href="http://www.codeproject.com/vb/net/printwatchvbnet.asp" target="_blank" rel="external">http://www.codeproject.com/vb/net/printwatchvbnet.asp</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-17T10:56:55.000Z"><a href="/2013/04/17/119/">4月 17 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/17/119/">Qt调用win32 api时，QString与LPWSTR的互转</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>QString→LPWSTR</p>
+<p><pre class="lang:c++ decode:true">QString s = “123”;<br>LPWSTR lpstr = s.utf16();</pre><br>LPWSTR→QString</p>
+<p><pre class="lang:c++ decode:true ">QString s = QString::fromUtf16(lpstr);</pre><br>&nbsp;</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-04T04:25:07.000Z"><a href="/2013/04/04/114/">4月 4 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/04/114/">解决QScrollArea不能出现滚动条的问题</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>QScrollArea实在是一个非常强大的控件，节省了很多重复工作。</p>
+<p>但如果使用Qt Creator中的ui designer来制作界面的话，就会出现滚动条无法出现的问题。而在《C++ GUI Programming with Qt4, Second Edition》中由于是代码生成界面，没有此问题。有不少人碰到这个问题，就因此觉得“designer中生成是错的，代码生成是正确的”的这种想法，试问奇趣公司的天才能设计出Qt这种最伟大的框架，却连设计器都没好好测试就放出release了？开玩笑吧。</p>
+<p>网上甚至还有个网友很“技术”地分析了这个问题，写了整整2大篇分析文章（<a href="http://blog.csdn.net/yangxiao_0203/article/details/7420402?reload" target="_blank" rel="external">点击打开</a>），图文并茂而且还用了控件的提升改进等方法，还说是布局的QSizePolicy的问题。</p>
+<p>谁能想到真正的问题和解决方法如此简单，用ui designer拖入的QScrollArea的widgetResizable属性是true，而用代码生成控件时默认构造器指定这个值是false。</p>
+<p><strong>真正的解决方法是在designer中将此值改为false，或在运行过程中执行setWidgetResizable(false)。</strong></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-02T19:39:16.000Z"><a href="/2013/04/03/111/">4月 3 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/03/111/">QAbstractListModel的数据更新问题</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>为QListview绑定了一个自定义model（由QAbstractListModel继承），在更新数据时总是出现“ASSERT： index.isvalid”并且crash掉，仔仔细细地又看了遍书，发现在数据更新后需要调用reset()通知view更新数据，以免因元素数量变更而造成index无效。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-02T08:18:34.000Z"><a href="/2013/04/02/108/">4月 2 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/02/108/">小技巧：QStringList去除重复项</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><pre class="lang:c++ decode:true crayon-selected" title="QStringList去除重复项">QStringList list;<br>list.append(“1”);<br>list.append(“2”);<br>list.append(“1”);<br>list = list.toSet().toList();</pre><br>&nbsp;</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-01T13:05:04.000Z"><a href="/2013/04/01/105/">4月 1 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/01/105/">慎用elementsByTagName()函数</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>今天在对基础parse模块进行单元测试，在用自建XML进行测试时发现了一些莫名的小bug。</p>
+<p>当然又是一顿查错，最后发现问题在于elementsByTagName函数，它竟然是大小写敏感（case insensitive）的！！这种着实下流的设计……也就是说找“Node1”是不会找到“node1”的。</p>
+<p>这样的话在调用各家的open api时，可靠性就完全依赖人品了，太不安全了，哎，基础模块小规模重构。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-31T19:47:58.000Z"><a href="/2013/04/01/103/">4月 1 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/01/103/">QPainter打印时映射的字体大小</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>映射倍数 = (double)设置纸张宽度 / (double)QPrinter.width();</p>
+<p>字体按pt计算缩放的方法：</p>
+<p>字体转换系数 = (double)QPrinter.physicalDpiX()/(double)72.00 * (double)映射倍数</p>
+<p>然后将字体的pt值 x 字体转换系数，得到映射放大后的字体像素大小，最后用QFont::setPixelSize()将此像素大小设置生效。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-31T18:35:42.000Z"><a href="/2013/04/01/101/">4月 1 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/01/101/">构建基于QtPlugin的DLL时应注意的事项</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>连示例代码都编译不过去的教程最差劲了！用Qt重构底层打印引擎时，想做成基于QtPlugin的插件，本来想偷懒不看英文，网上找了点中文教程看看，结果照着示例写一堆错啊，最后还是回头去看英文，时间一点没省……</p>
+<ol>
+<li>接口务必注意是纯虚函数，在函数声明后要加“= 0”</li>
+<li>在实现类中要#include &lt;QtPlugin&gt;，网上的教程是垃圾，不包含这个害我莫名的vtable错误调试半天。</li>
+<li>Q_EXPORT_PLUGIN2的第2个参数对应具体实现的插件类名字，不能随意起。同样的道理，Q_DECLARE_INTERFACE的第1个参数对应抽象接口类的名字，也不能随意起。<br>主要也就是这3条，MARK给自己看，同时也给其他写QtPlugin的桶子参考。</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-31T10:46:00.000Z"><a href="/2013/03/31/99/">3月 31 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/31/99/">自信过头的有道云笔记</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这个项目的资金我估计有八成是分配给美工了。UI很简洁漂亮（虽然这个简洁我后来发现是因为功能少造成的假象），但使用过程中发现了不少致命伤，在卸载之前写一下原因：</p>
+<p>1.对pc平台不重视<br>跨平台是主流，但摘录网页内容大多数情况下还是在PC上，PC的版本做得这么精简实在是太缺乏诚意了。竟然连官方的Firefox插件都没有提供！？</p>
+<p>2.空有暴发户的大容量空间，却不支持tag<br>这就像给你千兆的带宽却不让下载只能看网页一样，抓住中国人贪小便宜的心理玩了文字游戏，谁每个月能用得了2G的同步？在不支持tag的情况下查找资料变得非常困难，如果真的收集了2G的资料那仅仅用分类来管理真的太可怕了。</p>
+<p>3.莫名的自信和傲慢<br>evernote还是占了国内的绝对主流的，但同时还有其他的对手比如我使用的WIZ为知笔记、麦库等，作为后来者，有道云笔记只支持evernote的数据导入，其他对手不值得你关注？好牛啊。</p>
+<p>&nbsp;</p>
+<p>优点目前看到2个，界面实在好看，冲着这界面我才多用了几分钟，还有就是网易看起来不太容易倒闭，所以数据相对来说更安全些。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+    <a href="/archives/page/4/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/archives/page/6/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:super87.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/JS/">JS</a><small>2</small></li>
+  
+    <li><a href="/categories/Linux/">Linux</a><small>11</small></li>
+  
+    <li><a href="/categories/Linux/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/JS/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/PHP/">PHP</a><small>5</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>7</small></li>
+  
+    <li><a href="/categories/Linux/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/categories/Linux/Qt/">Qt</a><small>2</small></li>
+  
+    <li><a href="/categories/Qt/">Qt</a><small>25</small></li>
+  
+    <li><a href="/categories/Qt/口胡/">口胡</a><small>1</small></li>
+  
+    <li><a href="/categories/口胡/">口胡</a><small>14</small></li>
+  
+    <li><a href="/categories/摄影/">摄影</a><small>1</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/BeautifulSoup/">BeautifulSoup</a><small>1</small></li>
+  
+    <li><a href="/tags/Controller/">Controller</a><small>1</small></li>
+  
+    <li><a href="/tags/Controller-Template/">Controller_Template</a><small>1</small></li>
+  
+    <li><a href="/tags/DOM/">DOM</a><small>1</small></li>
+  
+    <li><a href="/tags/Dpi/">Dpi</a><small>1</small></li>
+  
+    <li><a href="/tags/EVA/">EVA</a><small>1</small></li>
+  
+    <li><a href="/tags/Kohana/">Kohana</a><small>5</small></li>
+  
+    <li><a href="/tags/LPWSTR/">LPWSTR</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/NetBeans/">NetBeans</a><small>1</small></li>
+  
+    <li><a href="/tags/PyV8/">PyV8</a><small>1</small></li>
+  
+    <li><a href="/tags/QAbstractListModel/">QAbstractListModel</a><small>1</small></li>
+  
+    <li><a href="/tags/QDateTime/">QDateTime</a><small>1</small></li>
+  
+    <li><a href="/tags/QDir/">QDir</a><small>1</small></li>
+  
+    <li><a href="/tags/QDomNode/">QDomNode</a><small>2</small></li>
+  
+    <li><a href="/tags/QFont/">QFont</a><small>1</small></li>
+  
+    <li><a href="/tags/QNetworkAccessManager/">QNetworkAccessManager</a><small>1</small></li>
+  
+    <li><a href="/tags/QObject/">QObject</a><small>1</small></li>
+  
+    <li><a href="/tags/QSS/">QSS</a><small>1</small></li>
+  
+    <li><a href="/tags/QScrollArea/">QScrollArea</a><small>1</small></li>
+  
+    <li><a href="/tags/QSqlQuery/">QSqlQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/QString/">QString</a><small>1</small></li>
+  
+    <li><a href="/tags/QStringList/">QStringList</a><small>1</small></li>
+  
+    <li><a href="/tags/QThread/">QThread</a><small>1</small></li>
+  
+    <li><a href="/tags/QdesktopWidget/">QdesktopWidget</a><small>1</small></li>
+  
+    <li><a href="/tags/Qt/">Qt</a><small>25</small></li>
+  
+    <li><a href="/tags/QtCreator/">QtCreator</a><small>1</small></li>
+  
+    <li><a href="/tags/QtPlugin/">QtPlugin</a><small>1</small></li>
+  
+    <li><a href="/tags/SSL/">SSL</a><small>1</small></li>
+  
+    <li><a href="/tags/UEditor/">UEditor</a><small>1</small></li>
+  
+    <li><a href="/tags/UI/">UI</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/Validation/">Validation</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>1</small></li>
+  
+    <li><a href="/tags/avast/">avast!</a><small>1</small></li>
+  
+    <li><a href="/tags/bindValue/">bindValue</a><small>1</small></li>
+  
+    <li><a href="/tags/boolean/">boolean</a><small>1</small></li>
+  
+    <li><a href="/tags/bootstrap/">bootstrap</a><small>1</small></li>
+  
+    <li><a href="/tags/bsie/">bsie</a><small>1</small></li>
+  
+    <li><a href="/tags/bug/">bug</a><small>1</small></li>
+  
+    <li><a href="/tags/captcha/">captcha</a><small>1</small></li>
+  
+    <li><a href="/tags/ccleaner/">ccleaner</a><small>1</small></li>
+  
+    <li><a href="/tags/centos/">centos</a><small>1</small></li>
+  
+    <li><a href="/tags/drawText/">drawText</a><small>1</small></li>
+  
+    <li><a href="/tags/elementsByTagName/">elementsByTagName</a><small>1</small></li>
+  
+    <li><a href="/tags/evernote/">evernote</a><small>1</small></li>
+  
+    <li><a href="/tags/fedora/">fedora</a><small>1</small></li>
+  
+    <li><a href="/tags/findAll/">findAll</a><small>1</small></li>
+  
+    <li><a href="/tags/find-all/">find_all</a><small>1</small></li>
+  
+    <li><a href="/tags/g/">g++</a><small>1</small></li>
+  
+    <li><a href="/tags/gvim/">gvim</a><small>1</small></li>
+  
+    <li><a href="/tags/hashlib/">hashlib</a><small>1</small></li>
+  
+    <li><a href="/tags/http/">http</a><small>1</small></li>
+  
+    <li><a href="/tags/iframe/">iframe</a><small>1</small></li>
+  
+    <li><a href="/tags/jquery/">jquery</a><small>1</small></li>
+  
+    <li><a href="/tags/js/">js</a><small>1</small></li>
+  
+    <li><a href="/tags/list/">list</a><small>1</small></li>
+  
+    <li><a href="/tags/md5/">md5</a><small>1</small></li>
+  
+    <li><a href="/tags/minGW/">minGW</a><small>1</small></li>
+  
+    <li><a href="/tags/mkdir/">mkdir</a><small>1</small></li>
+  
+    <li><a href="/tags/mkpath/">mkpath</a><small>1</small></li>
+  
+    <li><a href="/tags/model/">model</a><small>1</small></li>
+  
+    <li><a href="/tags/nginx/">nginx</a><small>1</small></li>
+  
+    <li><a href="/tags/nodeValue/">nodeValue</a><small>1</small></li>
+  
+    <li><a href="/tags/oauth/">oauth</a><small>1</small></li>
+  
+    <li><a href="/tags/opengl/">opengl</a><small>2</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>1</small></li>
+  
+    <li><a href="/tags/post/">post</a><small>1</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/qDebug/">qDebug</a><small>1</small></li>
+  
+    <li><a href="/tags/qml/">qml</a><small>1</small></li>
+  
+    <li><a href="/tags/quick2/">quick2</a><small>1</small></li>
+  
+    <li><a href="/tags/rowcount/">rowcount</a><small>1</small></li>
+  
+    <li><a href="/tags/smarty/">smarty</a><small>1</small></li>
+  
+    <li><a href="/tags/sqlite/">sqlite</a><small>2</small></li>
+  
+    <li><a href="/tags/str/">str</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>2</small></li>
+  
+    <li><a href="/tags/wiz/">wiz</a><small>1</small></li>
+  
+    <li><a href="/tags/中文乱码/">中文乱码</a><small>1</small></li>
+  
+    <li><a href="/tags/中文编码/">中文编码</a><small>1</small></li>
+  
+    <li><a href="/tags/乱码/">乱码</a><small>1</small></li>
+  
+    <li><a href="/tags/伪静态/">伪静态</a><small>1</small></li>
+  
+    <li><a href="/tags/佳能/">佳能</a><small>1</small></li>
+  
+    <li><a href="/tags/光圈/">光圈</a><small>1</small></li>
+  
+    <li><a href="/tags/分辨率/">分辨率</a><small>1</small></li>
+  
+    <li><a href="/tags/区别/">区别</a><small>1</small></li>
+  
+    <li><a href="/tags/反斜杠/">反斜杠</a><small>1</small></li>
+  
+    <li><a href="/tags/反锯齿/">反锯齿</a><small>1</small></li>
+  
+    <li><a href="/tags/可用性/">可用性</a><small>1</small></li>
+  
+    <li><a href="/tags/同步/">同步</a><small>1</small></li>
+  
+    <li><a href="/tags/启动/">启动</a><small>1</small></li>
+  
+    <li><a href="/tags/多线程/">多线程</a><small>1</small></li>
+  
+    <li><a href="/tags/字体/">字体</a><small>1</small></li>
+  
+    <li><a href="/tags/宠物/">宠物</a><small>4</small></li>
+  
+    <li><a href="/tags/小狗/">小狗</a><small>4</small></li>
+  
+    <li><a href="/tags/小痰盂/">小痰盂</a><small>1</small></li>
+  
+    <li><a href="/tags/张宴/">张宴</a><small>1</small></li>
+  
+    <li><a href="/tags/打印/">打印</a><small>1</small></li>
+  
+    <li><a href="/tags/打印队列/">打印队列</a><small>1</small></li>
+  
+    <li><a href="/tags/换肤/">换肤</a><small>1</small></li>
+  
+    <li><a href="/tags/插件/">插件</a><small>1</small></li>
+  
+    <li><a href="/tags/故障/">故障</a><small>1</small></li>
+  
+    <li><a href="/tags/有道云笔记/">有道云笔记</a><small>1</small></li>
+  
+    <li><a href="/tags/服务/">服务</a><small>1</small></li>
+  
+    <li><a href="/tags/本地化/">本地化</a><small>1</small></li>
+  
+    <li><a href="/tags/杀毒软件/">杀毒软件</a><small>1</small></li>
+  
+    <li><a href="/tags/淘宝/">淘宝</a><small>2</small></li>
+  
+    <li><a href="/tags/爬虫/">爬虫</a><small>2</small></li>
+  
+    <li><a href="/tags/窗口居中/">窗口居中</a><small>1</small></li>
+  
+    <li><a href="/tags/维修/">维修</a><small>1</small></li>
+  
+    <li><a href="/tags/编组/">编组</a><small>1</small></li>
+  
+    <li><a href="/tags/苏宁/">苏宁</a><small>1</small></li>
+  
+    <li><a href="/tags/虾米/">虾米</a><small>1</small></li>
+  
+    <li><a href="/tags/触摸板/">触摸板</a><small>1</small></li>
+  
+    <li><a href="/tags/触点/">触点</a><small>1</small></li>
+  
+    <li><a href="/tags/调试/">调试</a><small>1</small></li>
+  
+    <li><a href="/tags/路径/">路径</a><small>1</small></li>
+  
+    <li><a href="/tags/选择子/">选择子</a><small>1</small></li>
+  
+    <li><a href="/tags/重复/">重复</a><small>1</small></li>
+  
+    <li><a href="/tags/错误/">错误</a><small>1</small></li>
+  
+    <li><a href="/tags/闹闹/">闹闹</a><small>4</small></li>
+  
+    <li><a href="/tags/随机数/">随机数</a><small>1</small></li>
+  
+    <li><a href="/tags/静态编译/">静态编译</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 frankiez
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>从宽带欠费来谈软件的可用性 | 超霸气软件研究所</title>
+  <meta name="author" content="frankiez">
+  
+  <meta name="description" content="我就是懒得交费的人，所以今天晚上不幸被断网，电信劫持我的DNS让登录网上营业厅交费。
+交就交吧，可是这个操蛋的设计竟然不让登录，也不让用支付宝付费，他们的设计根本就没测试过……
+最后折腾半天，用iphone上3G又开了热点，打电信10000号告知要用分账序号付费，分账序号是个什么东西，我一个普通用户">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="从宽带欠费来谈软件的可用性"/>
+  <meta property="og:site_name" content="超霸气软件研究所"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="超霸气软件研究所" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">超霸气软件研究所</a></h1>
+  <h2><a href="/">研究前端技术</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-11-22T18:19:47.000Z"><a href="/2012/11/23/62/">11月 23 2012</a></time>
+      
+      
+  
+    <h1 class="title">从宽带欠费来谈软件的可用性</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>我就是懒得交费的人，所以今天晚上不幸被断网，电信劫持我的DNS让登录网上营业厅交费。</p>
+<p>交就交吧，可是这个操蛋的设计竟然不让登录，也不让用支付宝付费，他们的设计根本就没测试过……</p>
+<p>最后折腾半天，用iphone上3G又开了热点，打电信10000号告知要用分账序号付费，分账序号是个什么东西，我一个普通用户为毛要知道这种怪名词！？这事先不管，查了分账序号后再尝试支付，结果又需要一个宽带AD设备号，我擦，我只是付个费好不好，用不用把祖宗八辈的信息告诉你，再说这个什么设备号我TM一个普通用户为毛要知道！？又是10000号查……</p>
+<p>经过这一番折腾，就想起了关于软件UI可用性的一些事。</p>
+<p>比如我最喜欢拿来讥笑一番的淘宝助理，4.x版本竟然会有“压缩数据库”这个菜单项目。请不要小看这个菜单项，这至少说明开发者在设计时认为一个普通的淘宝店主还具备这些知识：</p>
+<ol>
+<li>清晰地识别出这个软件用MDB（ACCESS）来存储数据。</li>
+<li>了解性能瓶颈，知道MDB会越变越大并影响查询速度。</li>
+<li>在合适的时候压缩数据库实际是在提高软件响应速度。<br>这真的是一个普通用户应该了解的吗？？？因为这事被我作为例子笑过很多次，后来5.x的时候他们改了，但类似的傻事仍在继续，并且我不打算告诉他们了。你可能会问为什么不告诉他们了，其实还有个事：</li>
+</ol>
+<p>以前淘宝旺旺的web代码有个问题，就是不支持多账号，点了网页上的旺旺图标后，往往是后登录的旺旺打开聊天窗口。为了解决这事，我就自己写了多账号支持补丁并发布了，可是发布没几天，淘宝就学我样子升级了旺旺，界面都差不多，你们早就能做为毛不做非得我开发了你们再来抄！？</p>
+<p>还有QQ旋风，加任务的时候竟然会选单个任务还是批量任务，我要是复制了一堆ED2K链接那你自己就批量好不好？只复制了一个的时候你就单个好不好？</p>
+<p>就类似的这种很蠢的设计在各种软件里都有一堆，国内这几年比以往都要注重UI流程的合理性研究，还有一大堆国外的先进理论公式什么的，甚至还有专门的研究机构。我就不明白了，为毛我一个UI方面的外行人都能看出的毛病你们都看不到？</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/口胡/">口胡</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/UI/">UI</a>, <a href="/tags/可用性/">可用性</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://super87.com/2012/11/23/62/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:super87.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/JS/">JS</a><small>2</small></li>
+  
+    <li><a href="/categories/Linux/">Linux</a><small>11</small></li>
+  
+    <li><a href="/categories/Linux/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/JS/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/PHP/">PHP</a><small>5</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>7</small></li>
+  
+    <li><a href="/categories/Linux/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/categories/Linux/Qt/">Qt</a><small>2</small></li>
+  
+    <li><a href="/categories/Qt/">Qt</a><small>25</small></li>
+  
+    <li><a href="/categories/Qt/口胡/">口胡</a><small>1</small></li>
+  
+    <li><a href="/categories/口胡/">口胡</a><small>14</small></li>
+  
+    <li><a href="/categories/摄影/">摄影</a><small>1</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/BeautifulSoup/">BeautifulSoup</a><small>1</small></li>
+  
+    <li><a href="/tags/Controller/">Controller</a><small>1</small></li>
+  
+    <li><a href="/tags/Controller-Template/">Controller_Template</a><small>1</small></li>
+  
+    <li><a href="/tags/DOM/">DOM</a><small>1</small></li>
+  
+    <li><a href="/tags/Dpi/">Dpi</a><small>1</small></li>
+  
+    <li><a href="/tags/EVA/">EVA</a><small>1</small></li>
+  
+    <li><a href="/tags/Kohana/">Kohana</a><small>5</small></li>
+  
+    <li><a href="/tags/LPWSTR/">LPWSTR</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/NetBeans/">NetBeans</a><small>1</small></li>
+  
+    <li><a href="/tags/PyV8/">PyV8</a><small>1</small></li>
+  
+    <li><a href="/tags/QAbstractListModel/">QAbstractListModel</a><small>1</small></li>
+  
+    <li><a href="/tags/QDateTime/">QDateTime</a><small>1</small></li>
+  
+    <li><a href="/tags/QDir/">QDir</a><small>1</small></li>
+  
+    <li><a href="/tags/QDomNode/">QDomNode</a><small>2</small></li>
+  
+    <li><a href="/tags/QFont/">QFont</a><small>1</small></li>
+  
+    <li><a href="/tags/QNetworkAccessManager/">QNetworkAccessManager</a><small>1</small></li>
+  
+    <li><a href="/tags/QObject/">QObject</a><small>1</small></li>
+  
+    <li><a href="/tags/QSS/">QSS</a><small>1</small></li>
+  
+    <li><a href="/tags/QScrollArea/">QScrollArea</a><small>1</small></li>
+  
+    <li><a href="/tags/QSqlQuery/">QSqlQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/QString/">QString</a><small>1</small></li>
+  
+    <li><a href="/tags/QStringList/">QStringList</a><small>1</small></li>
+  
+    <li><a href="/tags/QThread/">QThread</a><small>1</small></li>
+  
+    <li><a href="/tags/QdesktopWidget/">QdesktopWidget</a><small>1</small></li>
+  
+    <li><a href="/tags/Qt/">Qt</a><small>25</small></li>
+  
+    <li><a href="/tags/QtCreator/">QtCreator</a><small>1</small></li>
+  
+    <li><a href="/tags/QtPlugin/">QtPlugin</a><small>1</small></li>
+  
+    <li><a href="/tags/SSL/">SSL</a><small>1</small></li>
+  
+    <li><a href="/tags/UEditor/">UEditor</a><small>1</small></li>
+  
+    <li><a href="/tags/UI/">UI</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/Validation/">Validation</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>1</small></li>
+  
+    <li><a href="/tags/avast/">avast!</a><small>1</small></li>
+  
+    <li><a href="/tags/bindValue/">bindValue</a><small>1</small></li>
+  
+    <li><a href="/tags/boolean/">boolean</a><small>1</small></li>
+  
+    <li><a href="/tags/bootstrap/">bootstrap</a><small>1</small></li>
+  
+    <li><a href="/tags/bsie/">bsie</a><small>1</small></li>
+  
+    <li><a href="/tags/bug/">bug</a><small>1</small></li>
+  
+    <li><a href="/tags/captcha/">captcha</a><small>1</small></li>
+  
+    <li><a href="/tags/ccleaner/">ccleaner</a><small>1</small></li>
+  
+    <li><a href="/tags/centos/">centos</a><small>1</small></li>
+  
+    <li><a href="/tags/drawText/">drawText</a><small>1</small></li>
+  
+    <li><a href="/tags/elementsByTagName/">elementsByTagName</a><small>1</small></li>
+  
+    <li><a href="/tags/evernote/">evernote</a><small>1</small></li>
+  
+    <li><a href="/tags/fedora/">fedora</a><small>1</small></li>
+  
+    <li><a href="/tags/findAll/">findAll</a><small>1</small></li>
+  
+    <li><a href="/tags/find-all/">find_all</a><small>1</small></li>
+  
+    <li><a href="/tags/g/">g++</a><small>1</small></li>
+  
+    <li><a href="/tags/gvim/">gvim</a><small>1</small></li>
+  
+    <li><a href="/tags/hashlib/">hashlib</a><small>1</small></li>
+  
+    <li><a href="/tags/http/">http</a><small>1</small></li>
+  
+    <li><a href="/tags/iframe/">iframe</a><small>1</small></li>
+  
+    <li><a href="/tags/jquery/">jquery</a><small>1</small></li>
+  
+    <li><a href="/tags/js/">js</a><small>1</small></li>
+  
+    <li><a href="/tags/list/">list</a><small>1</small></li>
+  
+    <li><a href="/tags/md5/">md5</a><small>1</small></li>
+  
+    <li><a href="/tags/minGW/">minGW</a><small>1</small></li>
+  
+    <li><a href="/tags/mkdir/">mkdir</a><small>1</small></li>
+  
+    <li><a href="/tags/mkpath/">mkpath</a><small>1</small></li>
+  
+    <li><a href="/tags/model/">model</a><small>1</small></li>
+  
+    <li><a href="/tags/nginx/">nginx</a><small>1</small></li>
+  
+    <li><a href="/tags/nodeValue/">nodeValue</a><small>1</small></li>
+  
+    <li><a href="/tags/oauth/">oauth</a><small>1</small></li>
+  
+    <li><a href="/tags/opengl/">opengl</a><small>2</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>1</small></li>
+  
+    <li><a href="/tags/post/">post</a><small>1</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/qDebug/">qDebug</a><small>1</small></li>
+  
+    <li><a href="/tags/qml/">qml</a><small>1</small></li>
+  
+    <li><a href="/tags/quick2/">quick2</a><small>1</small></li>
+  
+    <li><a href="/tags/rowcount/">rowcount</a><small>1</small></li>
+  
+    <li><a href="/tags/smarty/">smarty</a><small>1</small></li>
+  
+    <li><a href="/tags/sqlite/">sqlite</a><small>2</small></li>
+  
+    <li><a href="/tags/str/">str</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>2</small></li>
+  
+    <li><a href="/tags/wiz/">wiz</a><small>1</small></li>
+  
+    <li><a href="/tags/中文乱码/">中文乱码</a><small>1</small></li>
+  
+    <li><a href="/tags/中文编码/">中文编码</a><small>1</small></li>
+  
+    <li><a href="/tags/乱码/">乱码</a><small>1</small></li>
+  
+    <li><a href="/tags/伪静态/">伪静态</a><small>1</small></li>
+  
+    <li><a href="/tags/佳能/">佳能</a><small>1</small></li>
+  
+    <li><a href="/tags/光圈/">光圈</a><small>1</small></li>
+  
+    <li><a href="/tags/分辨率/">分辨率</a><small>1</small></li>
+  
+    <li><a href="/tags/区别/">区别</a><small>1</small></li>
+  
+    <li><a href="/tags/反斜杠/">反斜杠</a><small>1</small></li>
+  
+    <li><a href="/tags/反锯齿/">反锯齿</a><small>1</small></li>
+  
+    <li><a href="/tags/可用性/">可用性</a><small>1</small></li>
+  
+    <li><a href="/tags/同步/">同步</a><small>1</small></li>
+  
+    <li><a href="/tags/启动/">启动</a><small>1</small></li>
+  
+    <li><a href="/tags/多线程/">多线程</a><small>1</small></li>
+  
+    <li><a href="/tags/字体/">字体</a><small>1</small></li>
+  
+    <li><a href="/tags/宠物/">宠物</a><small>4</small></li>
+  
+    <li><a href="/tags/小狗/">小狗</a><small>4</small></li>
+  
+    <li><a href="/tags/小痰盂/">小痰盂</a><small>1</small></li>
+  
+    <li><a href="/tags/张宴/">张宴</a><small>1</small></li>
+  
+    <li><a href="/tags/打印/">打印</a><small>1</small></li>
+  
+    <li><a href="/tags/打印队列/">打印队列</a><small>1</small></li>
+  
+    <li><a href="/tags/换肤/">换肤</a><small>1</small></li>
+  
+    <li><a href="/tags/插件/">插件</a><small>1</small></li>
+  
+    <li><a href="/tags/故障/">故障</a><small>1</small></li>
+  
+    <li><a href="/tags/有道云笔记/">有道云笔记</a><small>1</small></li>
+  
+    <li><a href="/tags/服务/">服务</a><small>1</small></li>
+  
+    <li><a href="/tags/本地化/">本地化</a><small>1</small></li>
+  
+    <li><a href="/tags/杀毒软件/">杀毒软件</a><small>1</small></li>
+  
+    <li><a href="/tags/淘宝/">淘宝</a><small>2</small></li>
+  
+    <li><a href="/tags/爬虫/">爬虫</a><small>2</small></li>
+  
+    <li><a href="/tags/窗口居中/">窗口居中</a><small>1</small></li>
+  
+    <li><a href="/tags/维修/">维修</a><small>1</small></li>
+  
+    <li><a href="/tags/编组/">编组</a><small>1</small></li>
+  
+    <li><a href="/tags/苏宁/">苏宁</a><small>1</small></li>
+  
+    <li><a href="/tags/虾米/">虾米</a><small>1</small></li>
+  
+    <li><a href="/tags/触摸板/">触摸板</a><small>1</small></li>
+  
+    <li><a href="/tags/触点/">触点</a><small>1</small></li>
+  
+    <li><a href="/tags/调试/">调试</a><small>1</small></li>
+  
+    <li><a href="/tags/路径/">路径</a><small>1</small></li>
+  
+    <li><a href="/tags/选择子/">选择子</a><small>1</small></li>
+  
+    <li><a href="/tags/重复/">重复</a><small>1</small></li>
+  
+    <li><a href="/tags/错误/">错误</a><small>1</small></li>
+  
+    <li><a href="/tags/闹闹/">闹闹</a><small>4</small></li>
+  
+    <li><a href="/tags/随机数/">随机数</a><small>1</small></li>
+  
+    <li><a href="/tags/静态编译/">静态编译</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 frankiez
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

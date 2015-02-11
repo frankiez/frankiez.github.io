@@ -1,0 +1,780 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>归档：2014/4 | 超霸气软件研究所</title>
+  <meta name="author" content="frankiez">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="超霸气软件研究所"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="超霸气软件研究所" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">超霸气软件研究所</a></h1>
+  <h2><a href="/">研究前端技术</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2014/4</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-04-30T09:51:57.000Z"><a href="/2014/04/30/the-easiest-way-to-generate-random-numbers-with-specified-length-in-php/">4月 30 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/04/30/the-easiest-way-to-generate-random-numbers-with-specified-length-in-php/">PHP生成指定位数的随机数的最简便方法</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>刚才在写短信验证码模块，需要用到指定位数的随机数，然后网上一找发现太可怕了这么简单的事情竟然用了好几十行多个循环嵌套……看来没有好脑仁儿真的不适合当程序员。</p>
+<p>自写了一行版本：</p>
+<p><pre class="lang:php decode:true">function generate_code($length = 4) {<br>        return rand(pow(10,($length-1)), pow(10,$length)-1);<br>}</pre><br>为了便于理解，同时也为了这篇水文可以凑点字数，这是多行版：</p>
+<p><pre class="lang:php decode:true">function generate_code($length = 4) {<br>        $min = pow(10 , ($length - 1));<br>        $max = pow(10, $length) - 1;<br>        return rand($min, $max);<br>}</pre><br>&nbsp;</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-04-30T07:07:13.000Z"><a href="/2014/04/30/captcha-module-for-kohana-3-3/">4月 30 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/04/30/captcha-module-for-kohana-3-3/">Kohana 3.3能用的Captcha Module</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>官方的在3.3里取消了内置的captcha模块，而github上官方的kohana-captcha模块都是好几年前的了，因为3.3变态的PSR0命名规范所以根本无法使用。</p>
+<p>本来想手动修改所有类名和文件名，后来抱着不要重复造车轮的想法先搜索了一番，经过多次测试后找到了一个可以用的。<a href="https://github.com/vnetmx/kohana-captcha" target="_blank" rel="external">这个是git地址（用力点我）</a>。</p>
+<p>另备份了一份，如果不方便上git也可以<a href="http://super87.com/wp/wp-content/uploads/2014/04/kohana-captcha-master_3.3fix.zip" target="_blank" rel="external">直接下载（同样用力点我）</a>。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-04-29T08:58:36.000Z"><a href="/2014/04/29/how-to-remove-unnecessary-blank-lines-in-ueditor/">4月 29 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/04/29/how-to-remove-unnecessary-blank-lines-in-ueditor/">解决UEditor每次编辑在首尾多出空行的问题</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>新写的网站用UEditor做编辑器，结果发现每次编辑完都会多出首尾空行，像这样：</p>
+<pre class="lang:xhtml decode:true">&lt;p&gt;&lt;/p&gt;
+&lt;br/&gt;
+xxxxxx
+&lt;br/&gt;
+&lt;p&gt;&lt;/p&gt;</pre>
+然后看了下自己植入编辑器时的写法，发现了问题所在。
+<pre class="lang:js decode:true">&lt;script id="container" name="content" type="text/plain"&gt;
+&lt;?=$info['content']?&gt;
+&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+var editor = UE.getEditor('container', {
+    initialFrameWidth:"100%",
+    initialFrameHeight:450
+})
+&lt;/script&gt;</pre>
+在container中，&lt;?=$info['content']&gt;的前后各有一次回车，而ueditor将这2个回车自动转换为&lt;p&gt;&lt;/p&gt;&lt;/br&gt;的形式了。解决方法很简单，写在一行就可以了。
+<pre class="lang:js decode:true">&lt;script id="container" name="content" type="text/plain"&gt;&lt;?=$info['content']?&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+var editor = UE.getEditor('container', {
+    initialFrameWidth:"100%",
+    initialFrameHeight:450
+})
+&lt;/script&gt;</pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-04-27T17:35:24.000Z"><a href="/2014/04/28/how-to-set-rewrite-rule-of-kohana-3-3-1-in-nginx/">4月 28 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/04/28/how-to-set-rewrite-rule-of-kohana-3-3-1-in-nginx/">nginx中的kohana3.3.1伪静态设置</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><pre class="lang:vim decode:true crayon-selected">server<br>    {<br>        listen       80;<br>        server_name 55zaza;<br>        index index.html index.htm index.php default.html default.htm default.php;<br>        root  /home/wwwroot/55zaza;</pre></p>
+<pre><code>    <span class="comment">#include kohana_rw.conf;</span>
+
+    location / {
+        index index.php;
+        try_files $uri $uri/ /index.php?$uri&amp;amp;$args;
+    }
+
+    location ~ .<span class="keyword">*</span>.(php<span class="string">|php5)?$</span>
+        {
+            try_files $uri =404;
+            fastcgi_pass  unix:/tmp/php-cgi.sock;
+            fastcgi_index index.php;
+            include fcgi.conf;
+        }
+
+    location ~ .<span class="keyword">*</span>.(gif<span class="string">|jpg|jpeg|png|bmp|swf)$</span>
+        {
+            expires      30d;
+        }
+
+    location ~ .<span class="keyword">*</span>.(js<span class="string">|css)?$</span>
+        {
+            expires      12h;
+        }
+    access_log off;
+}<span class="variable">&lt;/pre&gt;</span>
+</code></pre><p>&nbsp;</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-04-27T12:11:19.000Z"><a href="/2014/04/27/network-config-after-minimal-installation-of-centos/">4月 27 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/04/27/network-config-after-minimal-installation-of-centos/">centos最小化安装后的上网问题</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <div style="color: #454545;">vi /etc/sysconfig/network-scripts/ifcfg-eth0</div><br><div style="color: #454545;">ONBOOT=no 改成 yes</div>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-04-22T02:14:01.000Z"><a href="/2014/04/22/242/">4月 22 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/04/22/242/">关于虾米放弃自有账号体系想到的</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>虾米的自有账号体系彻底沦陷了，现在升级到淘宝账号还给90天的VIP体验。这可能对虾米来说是个发展的好机会，对普通用户来说也是一件点一点就完成的小事，可是我想到了一些别的事情。</p>
+<h1 id="这意味着什么？">这意味着什么？</h1>
+<p>按照惯例几乎可以预测，淘宝将在半年左右，最长1年以内将虾米全盘整合入淘宝的“官方”生态圈。为什么说是“官方”生态圈？因为以往打造的生态圈中凡是淘宝没有直接收钱的最后都被淘宝干掉了，方法无非是更改规则或者是直接利用其平台优势推出同类产品。</p>
+<p>现在既然淘宝已经入股虾米，并且迫使虾米放弃了自有账号体系，那么就说明全盘整合已经进入加速期。在原有用户转入新账号一段时间后，淘宝应该会将虾米改名为“淘音乐”之类的东西。</p>
+<p>&nbsp;</p>
+<h1 id="为什么这样做？">为什么这样做？</h1>
+<p>无利不起早，淘宝当然也不是为了蛋疼才这么做的。原因大致有以下几点：</p>
+<h2 id="提高平台可扩展性">提高平台可扩展性</h2>
+<p>淘宝的垄断力不弱于腾讯，而且在支付领域暂时无敌，那么平台可扩展性是什么意思？腾讯做聊天软件起家，目前微信又能独当一面，很轻易地就能布局到游戏和其他社交领域，有朋友一起玩才好玩嘛。可上淘宝的基本都是买东西，买完就关了，旺信？那就是个笑话，相信没有什么人会想和淘宝上的朋友一起玩游戏的。而吸收虾米这部分垂直的客户就能逐步改善一些问题。</p>
+<h2 id="移动端缺乏杀手级应用">移动端缺乏杀手级应用</h2>
+<p>苹果的ios上有iTunes，尽管在中国支付起来还是不怎么方便，但正版音乐、正版游戏、正版软件都妥妥的。amazon推kindle的android版本，尽管是android，也有amazon的自有app市场以及kindle的电子书平台优势。而淘宝（其实应该说是阿里巴巴）的阿里云一直是个逗13角色，抄没抄袭暂且不说，生态圈是几乎没有的，买阿里云手机都是因为可以便宜买机器然后回头再刷别的ROM。</p>
+<p>那么虾米的地位就变得异常重要起来，全盘整合虾米就意味着今后阿里云绑定的淘音乐有了第一批具备实际购买能力的优质客户。自古以来，资源不占优的情况下，以点破面乃是上策。</p>
+<p>&nbsp;</p>
+<h1 id="对虾米的风险">对虾米的风险</h1>
+<p>有大公司做靠山，乍一看当然是天大的好事。可提到大公司作风，比较容易想到的就是非主营业务的事业部获得资源较少以致半死不活，毕竟世界上能真正“平面化”管理的也只有jobs了。</p>
+<p>&nbsp;</p>
+<p>1年后，见分晓。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-04-15T03:48:36.000Z"><a href="/2014/04/15/how-to-setup-custom-error-pages-for-kohana-3-3-1/">4月 15 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/04/15/how-to-setup-custom-error-pages-for-kohana-3-3-1/">Kohana 3.3.1 自定义错误页面</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>以自定义404页面为例</p>
+<p>一、在APP/classes/HTTP/Exception/ 目录下加入404.php，继承Kohana_HTTP_Exception_404类</p>
+<p><pre class="lang:php decode:true" title="APP/classes/HTTP/Exception/404.php">&lt;?php defined(‘SYSPATH’) or die(‘No direct script access.’);</pre></p>
+<p>class HTTP_Exception_404 extends Kohana_HTTP_Exception_404 {</p>
+<pre><code><span class="comment">/**
+ * Generate a Response for the 404 Exception.
+ *
+ * The user should be shown a nice 404 page.
+ * 
+ * @return Response
+ */</span>
+<span class="keyword">public</span> function get_response()
+{
+    <span class="variable">$view</span> <span class="subst">=</span> View<span class="tag">::factory</span>(<span class="string">'errors/404'</span>);
+
+    <span class="comment">// Remembering that `$this` is an instance of HTTP_Exception_404</span>
+    <span class="variable">$view</span><span class="subst">-&amp;</span><span class="literal">gt</span>;message <span class="subst">=</span> <span class="variable">$this</span><span class="subst">-&amp;</span><span class="literal">gt</span>;getMessage();
+
+    <span class="variable">$response</span> <span class="subst">=</span> Response<span class="tag">::factory</span>()
+        <span class="subst">-&amp;</span><span class="literal">gt</span>;status(<span class="number">404</span>)
+        <span class="subst">-&amp;</span><span class="literal">gt</span>;body(<span class="variable">$view</span><span class="subst">-&amp;</span><span class="literal">gt</span>;render());
+
+    <span class="keyword">return</span> <span class="variable">$response</span>;
+}
+</code></pre><p>}<br>二、在 APP/views/ 目录下新建404.php（这个文件名随便，只要和刚才Exception目录下404.php中载入的view名对应即可）</p>
+<p><pre class="lang:php decode:true">&lt;?php defined(‘SYSPATH’) or die(‘No direct script access.’); ?&gt;<br>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>    &lt;meta charset=UTF-8&gt;<br>    &lt;title&gt;Page not found&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p&gt;404 Page not found&lt;/p&gt;<br>    &lt;p&gt;&lt;?=$message ?&gt;&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br>三、在Controller（控制器）适当位置抛出异常</p>
+<p>比如我的 APP/classes/Controller/info.php，在action_detail()中，发现request中请求的id参数在数据库中并不存在时（Model查询返回FALSE），抛出异常。</p>
+<p><pre class="lang:php decode:true">if(!$info) {<br>    throw HTTP_Exception::factory(404, ‘info number is invalid’, array(<br>        ‘:uri’ =&gt; $this-&gt;request-&gt;uri(),<br>    ));<br>}</pre><br>&nbsp;</p>
+<p>这就妥妥了，其他错误码或转向之类的也差不多，查文档可知。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-04-11T05:03:12.000Z"><a href="/2014/04/11/the-right-way-to-call-function-after-iframe-loaded-in-jquery/">4月 11 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/04/11/the-right-way-to-call-function-after-iframe-loaded-in-jquery/">jquery在iframe加载完成后执行函数的正确方法</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>之前看网上资料说是这样：</p>
+<p><pre class="lang:js decode:true">$(‘#iframe’).load(function(){<br>    $(‘#iframe’)[0].contentWindow.XXX();<br>})</pre><br>实际测试后发现load并没有被触发，说明这个实际是在iframe已经加载完成后才绑定的，所以并未触发。又继续一顿搜索，有个老外给出了解决方法：</p>
+<p><pre class="lang:js decode:true">$(document).ready(function() {<br>    var iFrame = $(‘#iframe’);<br>    iFrame.bind(‘load’, function(){<br>    $(‘#iframe’)[0].contentWindow.XXX();<br>    })<br>})</pre><br>原因暂时未明，回头继续查查资料为什么这样。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-04-04T04:04:40.000Z"><a href="/2014/04/04/how-to-implementing-custom-error-message-of-validation-in-kohana-3-3/">4月 4 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/04/04/how-to-implementing-custom-error-message-of-validation-in-kohana-3-3/">Kohana3.3自定义Validation验证错误信息</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Kohana官方的文档中没有给出Validation自定义错误信息的方法，网上搜索了一下，老外给出了一些例子，不过都是基于ORM的，对ORM不喜，觉得有点过度包装，因此项目中没有使用。</p>
+<p>那么没有使用ORM应该如何自定义验证错误信息呢？读了下system下Validation类的源代码终于搞明白了，下面给出代码片段供参考：</p>
+<p><pre class="lang:php decode:true" title="Controller中的代码">$validation = Validation::factory($this-&gt;request-&gt;post())<br>        -&gt;rule(‘mobile’, ‘not_empty’)<br>        -&gt;rule(‘mobile’, ‘regex’, array(‘:value’, ‘/^1d{10}$/‘))<br>        -&gt;rule(‘password’, ‘not_empty’)<br>        -&gt;rule(‘password’, ‘regex’, array(‘:value’, ‘/^[a-zA-Z0-9]{6,16}$/‘));<br>//验证不通过<br>if(!$validation-&gt;check()) {<br>    $errors = $validation-&gt;errors(‘member’);<br>    $this-&gt;response-&gt;body(View::factory(‘login’)<br>        -&gt;bind(‘post’, $post)<br>        -&gt;bind(‘errors’, $errors));<br>}</pre><br>注意，其中“$errors = $validation-&gt;errors(‘member’);”就是获取验证错误提示信息的地方，而errors函数中接收的参数’member’则是说明错误信息从“application/messages”目录下的member.php文件中读取并匹配。需要说明的是这个文件并不是类，所以文件名不需要首字母大写，参数与文件名一致即可。</p>
+<p>application/messages/member.php的内容比较简单，返回对应的数组即可。</p>
+<p><pre class="lang:php decode:true" title="application/messages/member.php">&lt;?php defined(‘SYSPATH’) OR die(‘No direct script access.’);</pre></p>
+<p>return array(<br>    ‘mobile’ =&gt; array(<br>        ‘not_empty’ =&gt; ‘手机号码不能为空’,<br>        ‘regex’ =&gt; ‘手机号码不正确’,<br>    ),<br>    ‘password’ =&gt; array(<br>        ‘not_empty’ =&gt; ‘密码不能为空’,<br>        ‘regex’ =&gt; ‘密码长度在6位～16位’,<br>    ),<br>);<br>&nbsp;</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:super87.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/JS/">JS</a><small>2</small></li>
+  
+    <li><a href="/categories/Linux/">Linux</a><small>11</small></li>
+  
+    <li><a href="/categories/Linux/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/JS/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/PHP/">PHP</a><small>5</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>7</small></li>
+  
+    <li><a href="/categories/Linux/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/categories/Linux/Qt/">Qt</a><small>2</small></li>
+  
+    <li><a href="/categories/Qt/">Qt</a><small>25</small></li>
+  
+    <li><a href="/categories/Qt/口胡/">口胡</a><small>1</small></li>
+  
+    <li><a href="/categories/口胡/">口胡</a><small>14</small></li>
+  
+    <li><a href="/categories/摄影/">摄影</a><small>1</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/BeautifulSoup/">BeautifulSoup</a><small>1</small></li>
+  
+    <li><a href="/tags/Controller/">Controller</a><small>1</small></li>
+  
+    <li><a href="/tags/Controller-Template/">Controller_Template</a><small>1</small></li>
+  
+    <li><a href="/tags/DOM/">DOM</a><small>1</small></li>
+  
+    <li><a href="/tags/Dpi/">Dpi</a><small>1</small></li>
+  
+    <li><a href="/tags/EVA/">EVA</a><small>1</small></li>
+  
+    <li><a href="/tags/Kohana/">Kohana</a><small>5</small></li>
+  
+    <li><a href="/tags/LPWSTR/">LPWSTR</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/NetBeans/">NetBeans</a><small>1</small></li>
+  
+    <li><a href="/tags/PyV8/">PyV8</a><small>1</small></li>
+  
+    <li><a href="/tags/QAbstractListModel/">QAbstractListModel</a><small>1</small></li>
+  
+    <li><a href="/tags/QDateTime/">QDateTime</a><small>1</small></li>
+  
+    <li><a href="/tags/QDir/">QDir</a><small>1</small></li>
+  
+    <li><a href="/tags/QDomNode/">QDomNode</a><small>2</small></li>
+  
+    <li><a href="/tags/QFont/">QFont</a><small>1</small></li>
+  
+    <li><a href="/tags/QNetworkAccessManager/">QNetworkAccessManager</a><small>1</small></li>
+  
+    <li><a href="/tags/QObject/">QObject</a><small>1</small></li>
+  
+    <li><a href="/tags/QSS/">QSS</a><small>1</small></li>
+  
+    <li><a href="/tags/QScrollArea/">QScrollArea</a><small>1</small></li>
+  
+    <li><a href="/tags/QSqlQuery/">QSqlQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/QString/">QString</a><small>1</small></li>
+  
+    <li><a href="/tags/QStringList/">QStringList</a><small>1</small></li>
+  
+    <li><a href="/tags/QThread/">QThread</a><small>1</small></li>
+  
+    <li><a href="/tags/QdesktopWidget/">QdesktopWidget</a><small>1</small></li>
+  
+    <li><a href="/tags/Qt/">Qt</a><small>25</small></li>
+  
+    <li><a href="/tags/QtCreator/">QtCreator</a><small>1</small></li>
+  
+    <li><a href="/tags/QtPlugin/">QtPlugin</a><small>1</small></li>
+  
+    <li><a href="/tags/SSL/">SSL</a><small>1</small></li>
+  
+    <li><a href="/tags/UEditor/">UEditor</a><small>1</small></li>
+  
+    <li><a href="/tags/UI/">UI</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/Validation/">Validation</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>1</small></li>
+  
+    <li><a href="/tags/avast/">avast!</a><small>1</small></li>
+  
+    <li><a href="/tags/bindValue/">bindValue</a><small>1</small></li>
+  
+    <li><a href="/tags/boolean/">boolean</a><small>1</small></li>
+  
+    <li><a href="/tags/bootstrap/">bootstrap</a><small>1</small></li>
+  
+    <li><a href="/tags/bsie/">bsie</a><small>1</small></li>
+  
+    <li><a href="/tags/bug/">bug</a><small>1</small></li>
+  
+    <li><a href="/tags/captcha/">captcha</a><small>1</small></li>
+  
+    <li><a href="/tags/ccleaner/">ccleaner</a><small>1</small></li>
+  
+    <li><a href="/tags/centos/">centos</a><small>1</small></li>
+  
+    <li><a href="/tags/drawText/">drawText</a><small>1</small></li>
+  
+    <li><a href="/tags/elementsByTagName/">elementsByTagName</a><small>1</small></li>
+  
+    <li><a href="/tags/evernote/">evernote</a><small>1</small></li>
+  
+    <li><a href="/tags/fedora/">fedora</a><small>1</small></li>
+  
+    <li><a href="/tags/findAll/">findAll</a><small>1</small></li>
+  
+    <li><a href="/tags/find-all/">find_all</a><small>1</small></li>
+  
+    <li><a href="/tags/g/">g++</a><small>1</small></li>
+  
+    <li><a href="/tags/gvim/">gvim</a><small>1</small></li>
+  
+    <li><a href="/tags/hashlib/">hashlib</a><small>1</small></li>
+  
+    <li><a href="/tags/http/">http</a><small>1</small></li>
+  
+    <li><a href="/tags/iframe/">iframe</a><small>1</small></li>
+  
+    <li><a href="/tags/jquery/">jquery</a><small>1</small></li>
+  
+    <li><a href="/tags/js/">js</a><small>1</small></li>
+  
+    <li><a href="/tags/list/">list</a><small>1</small></li>
+  
+    <li><a href="/tags/md5/">md5</a><small>1</small></li>
+  
+    <li><a href="/tags/minGW/">minGW</a><small>1</small></li>
+  
+    <li><a href="/tags/mkdir/">mkdir</a><small>1</small></li>
+  
+    <li><a href="/tags/mkpath/">mkpath</a><small>1</small></li>
+  
+    <li><a href="/tags/model/">model</a><small>1</small></li>
+  
+    <li><a href="/tags/nginx/">nginx</a><small>1</small></li>
+  
+    <li><a href="/tags/nodeValue/">nodeValue</a><small>1</small></li>
+  
+    <li><a href="/tags/oauth/">oauth</a><small>1</small></li>
+  
+    <li><a href="/tags/opengl/">opengl</a><small>2</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>1</small></li>
+  
+    <li><a href="/tags/post/">post</a><small>1</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/qDebug/">qDebug</a><small>1</small></li>
+  
+    <li><a href="/tags/qml/">qml</a><small>1</small></li>
+  
+    <li><a href="/tags/quick2/">quick2</a><small>1</small></li>
+  
+    <li><a href="/tags/rowcount/">rowcount</a><small>1</small></li>
+  
+    <li><a href="/tags/smarty/">smarty</a><small>1</small></li>
+  
+    <li><a href="/tags/sqlite/">sqlite</a><small>2</small></li>
+  
+    <li><a href="/tags/str/">str</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>2</small></li>
+  
+    <li><a href="/tags/wiz/">wiz</a><small>1</small></li>
+  
+    <li><a href="/tags/中文乱码/">中文乱码</a><small>1</small></li>
+  
+    <li><a href="/tags/中文编码/">中文编码</a><small>1</small></li>
+  
+    <li><a href="/tags/乱码/">乱码</a><small>1</small></li>
+  
+    <li><a href="/tags/伪静态/">伪静态</a><small>1</small></li>
+  
+    <li><a href="/tags/佳能/">佳能</a><small>1</small></li>
+  
+    <li><a href="/tags/光圈/">光圈</a><small>1</small></li>
+  
+    <li><a href="/tags/分辨率/">分辨率</a><small>1</small></li>
+  
+    <li><a href="/tags/区别/">区别</a><small>1</small></li>
+  
+    <li><a href="/tags/反斜杠/">反斜杠</a><small>1</small></li>
+  
+    <li><a href="/tags/反锯齿/">反锯齿</a><small>1</small></li>
+  
+    <li><a href="/tags/可用性/">可用性</a><small>1</small></li>
+  
+    <li><a href="/tags/同步/">同步</a><small>1</small></li>
+  
+    <li><a href="/tags/启动/">启动</a><small>1</small></li>
+  
+    <li><a href="/tags/多线程/">多线程</a><small>1</small></li>
+  
+    <li><a href="/tags/字体/">字体</a><small>1</small></li>
+  
+    <li><a href="/tags/宠物/">宠物</a><small>4</small></li>
+  
+    <li><a href="/tags/小狗/">小狗</a><small>4</small></li>
+  
+    <li><a href="/tags/小痰盂/">小痰盂</a><small>1</small></li>
+  
+    <li><a href="/tags/张宴/">张宴</a><small>1</small></li>
+  
+    <li><a href="/tags/打印/">打印</a><small>1</small></li>
+  
+    <li><a href="/tags/打印队列/">打印队列</a><small>1</small></li>
+  
+    <li><a href="/tags/换肤/">换肤</a><small>1</small></li>
+  
+    <li><a href="/tags/插件/">插件</a><small>1</small></li>
+  
+    <li><a href="/tags/故障/">故障</a><small>1</small></li>
+  
+    <li><a href="/tags/有道云笔记/">有道云笔记</a><small>1</small></li>
+  
+    <li><a href="/tags/服务/">服务</a><small>1</small></li>
+  
+    <li><a href="/tags/本地化/">本地化</a><small>1</small></li>
+  
+    <li><a href="/tags/杀毒软件/">杀毒软件</a><small>1</small></li>
+  
+    <li><a href="/tags/淘宝/">淘宝</a><small>2</small></li>
+  
+    <li><a href="/tags/爬虫/">爬虫</a><small>2</small></li>
+  
+    <li><a href="/tags/窗口居中/">窗口居中</a><small>1</small></li>
+  
+    <li><a href="/tags/维修/">维修</a><small>1</small></li>
+  
+    <li><a href="/tags/编组/">编组</a><small>1</small></li>
+  
+    <li><a href="/tags/苏宁/">苏宁</a><small>1</small></li>
+  
+    <li><a href="/tags/虾米/">虾米</a><small>1</small></li>
+  
+    <li><a href="/tags/触摸板/">触摸板</a><small>1</small></li>
+  
+    <li><a href="/tags/触点/">触点</a><small>1</small></li>
+  
+    <li><a href="/tags/调试/">调试</a><small>1</small></li>
+  
+    <li><a href="/tags/路径/">路径</a><small>1</small></li>
+  
+    <li><a href="/tags/选择子/">选择子</a><small>1</small></li>
+  
+    <li><a href="/tags/重复/">重复</a><small>1</small></li>
+  
+    <li><a href="/tags/错误/">错误</a><small>1</small></li>
+  
+    <li><a href="/tags/闹闹/">闹闹</a><small>4</small></li>
+  
+    <li><a href="/tags/随机数/">随机数</a><small>1</small></li>
+  
+    <li><a href="/tags/静态编译/">静态编译</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 frankiez
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

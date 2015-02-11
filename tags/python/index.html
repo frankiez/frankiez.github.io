@@ -1,0 +1,452 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python | 超霸气软件研究所</title>
+  <meta name="author" content="frankiez">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="超霸气软件研究所"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="超霸气软件研究所" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">超霸气软件研究所</a></h1>
+  <h2><a href="/">研究前端技术</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">python</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-07-17T14:12:37.000Z"><a href="/2014/07/17/python-e6-8a-93-e5-8f-96-e7-bd-91-e9-a1-b5-e6-97-b6gbk-e7-bc-96-e7-a0-81-e8-bd-acutf-8/">7月 17 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/17/python-e6-8a-93-e5-8f-96-e7-bd-91-e9-a1-b5-e6-97-b6gbk-e7-bc-96-e7-a0-81-e8-bd-acutf-8/">Python抓取网页时GBK编码转UTF-8</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>用chardet模块检测出网页是ISO-8859-2的编码，西欧语言，这明显是不正确的，推测可能是网页中包含的某些特殊字符造成检测结果出错。</p>
+<p>直接使用html.decode(‘gbk’).encode(‘utf-8’)则报错，那么可以简单地加一个参数让解码过程中出现错误自动忽略，即html.decode(‘gbk’, ‘ignore’).encode(‘utf-8’)</p>
+<p>中文便能正确显示了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-12-08T13:09:41.000Z"><a href="/2013/12/08/173/">12月 8 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/12/08/173/">BeautifulSoup中findAll和find_all是否有区别</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在一个爬虫代码里看到这两种用法，一直不敢确定它们是否一致，搜了一下。</p>
+<blockquote>
+<p>The methods are exactly the same; the mixed-case versions (<code>findAll</code>, <code>findAllNext</code>,<code>nextSibling</code>, etc.) have all been renamed to conform to the <a href="http://www.python.org/dev/peps/pep-0008/" target="_blank" rel="external">Python style guide</a>, but the <em>old</em> names are still available to make porting easier. See <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/#method-names" target="_blank" rel="external">Method Names</a> for a full list.</p>
+<p>In new code, you should use the lowercase versions, so <code>find_all</code>, etc.<br>嗯，翻译下大致的意思<br>这两个方法是完全相同的。大小写混合的版本（比如findAll,findAllNext,nextSibing）已经全部重命名以便适应《<a href="http://www.python.org/dev/peps/pep-0008/" target="_blank" rel="external">Python样式向导</a>》，不过为了方便起见，老的名字仍然可用。完整的列表可以参考《<a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/#method-names" target="_blank" rel="external">方法名</a>》。</p>
+<p>在新代码中，你应该使用小写版本，就像find_all这样的。</p>
+</blockquote>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:super87.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/JS/">JS</a><small>2</small></li>
+  
+    <li><a href="/categories/Linux/">Linux</a><small>11</small></li>
+  
+    <li><a href="/categories/Linux/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/JS/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/PHP/">PHP</a><small>5</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>7</small></li>
+  
+    <li><a href="/categories/Linux/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/categories/Linux/Qt/">Qt</a><small>2</small></li>
+  
+    <li><a href="/categories/Qt/">Qt</a><small>25</small></li>
+  
+    <li><a href="/categories/Qt/口胡/">口胡</a><small>1</small></li>
+  
+    <li><a href="/categories/口胡/">口胡</a><small>14</small></li>
+  
+    <li><a href="/categories/摄影/">摄影</a><small>1</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/BeautifulSoup/">BeautifulSoup</a><small>1</small></li>
+  
+    <li><a href="/tags/Controller/">Controller</a><small>1</small></li>
+  
+    <li><a href="/tags/Controller-Template/">Controller_Template</a><small>1</small></li>
+  
+    <li><a href="/tags/DOM/">DOM</a><small>1</small></li>
+  
+    <li><a href="/tags/Dpi/">Dpi</a><small>1</small></li>
+  
+    <li><a href="/tags/EVA/">EVA</a><small>1</small></li>
+  
+    <li><a href="/tags/Kohana/">Kohana</a><small>5</small></li>
+  
+    <li><a href="/tags/LPWSTR/">LPWSTR</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/NetBeans/">NetBeans</a><small>1</small></li>
+  
+    <li><a href="/tags/PyV8/">PyV8</a><small>1</small></li>
+  
+    <li><a href="/tags/QAbstractListModel/">QAbstractListModel</a><small>1</small></li>
+  
+    <li><a href="/tags/QDateTime/">QDateTime</a><small>1</small></li>
+  
+    <li><a href="/tags/QDir/">QDir</a><small>1</small></li>
+  
+    <li><a href="/tags/QDomNode/">QDomNode</a><small>2</small></li>
+  
+    <li><a href="/tags/QFont/">QFont</a><small>1</small></li>
+  
+    <li><a href="/tags/QNetworkAccessManager/">QNetworkAccessManager</a><small>1</small></li>
+  
+    <li><a href="/tags/QObject/">QObject</a><small>1</small></li>
+  
+    <li><a href="/tags/QSS/">QSS</a><small>1</small></li>
+  
+    <li><a href="/tags/QScrollArea/">QScrollArea</a><small>1</small></li>
+  
+    <li><a href="/tags/QSqlQuery/">QSqlQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/QString/">QString</a><small>1</small></li>
+  
+    <li><a href="/tags/QStringList/">QStringList</a><small>1</small></li>
+  
+    <li><a href="/tags/QThread/">QThread</a><small>1</small></li>
+  
+    <li><a href="/tags/QdesktopWidget/">QdesktopWidget</a><small>1</small></li>
+  
+    <li><a href="/tags/Qt/">Qt</a><small>25</small></li>
+  
+    <li><a href="/tags/QtCreator/">QtCreator</a><small>1</small></li>
+  
+    <li><a href="/tags/QtPlugin/">QtPlugin</a><small>1</small></li>
+  
+    <li><a href="/tags/SSL/">SSL</a><small>1</small></li>
+  
+    <li><a href="/tags/UEditor/">UEditor</a><small>1</small></li>
+  
+    <li><a href="/tags/UI/">UI</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/Validation/">Validation</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>1</small></li>
+  
+    <li><a href="/tags/avast/">avast!</a><small>1</small></li>
+  
+    <li><a href="/tags/bindValue/">bindValue</a><small>1</small></li>
+  
+    <li><a href="/tags/boolean/">boolean</a><small>1</small></li>
+  
+    <li><a href="/tags/bootstrap/">bootstrap</a><small>1</small></li>
+  
+    <li><a href="/tags/bsie/">bsie</a><small>1</small></li>
+  
+    <li><a href="/tags/bug/">bug</a><small>1</small></li>
+  
+    <li><a href="/tags/captcha/">captcha</a><small>1</small></li>
+  
+    <li><a href="/tags/ccleaner/">ccleaner</a><small>1</small></li>
+  
+    <li><a href="/tags/centos/">centos</a><small>1</small></li>
+  
+    <li><a href="/tags/drawText/">drawText</a><small>1</small></li>
+  
+    <li><a href="/tags/elementsByTagName/">elementsByTagName</a><small>1</small></li>
+  
+    <li><a href="/tags/evernote/">evernote</a><small>1</small></li>
+  
+    <li><a href="/tags/fedora/">fedora</a><small>1</small></li>
+  
+    <li><a href="/tags/findAll/">findAll</a><small>1</small></li>
+  
+    <li><a href="/tags/find-all/">find_all</a><small>1</small></li>
+  
+    <li><a href="/tags/g/">g++</a><small>1</small></li>
+  
+    <li><a href="/tags/gvim/">gvim</a><small>1</small></li>
+  
+    <li><a href="/tags/hashlib/">hashlib</a><small>1</small></li>
+  
+    <li><a href="/tags/http/">http</a><small>1</small></li>
+  
+    <li><a href="/tags/iframe/">iframe</a><small>1</small></li>
+  
+    <li><a href="/tags/jquery/">jquery</a><small>1</small></li>
+  
+    <li><a href="/tags/js/">js</a><small>1</small></li>
+  
+    <li><a href="/tags/list/">list</a><small>1</small></li>
+  
+    <li><a href="/tags/md5/">md5</a><small>1</small></li>
+  
+    <li><a href="/tags/minGW/">minGW</a><small>1</small></li>
+  
+    <li><a href="/tags/mkdir/">mkdir</a><small>1</small></li>
+  
+    <li><a href="/tags/mkpath/">mkpath</a><small>1</small></li>
+  
+    <li><a href="/tags/model/">model</a><small>1</small></li>
+  
+    <li><a href="/tags/nginx/">nginx</a><small>1</small></li>
+  
+    <li><a href="/tags/nodeValue/">nodeValue</a><small>1</small></li>
+  
+    <li><a href="/tags/oauth/">oauth</a><small>1</small></li>
+  
+    <li><a href="/tags/opengl/">opengl</a><small>2</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>1</small></li>
+  
+    <li><a href="/tags/post/">post</a><small>1</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/qDebug/">qDebug</a><small>1</small></li>
+  
+    <li><a href="/tags/qml/">qml</a><small>1</small></li>
+  
+    <li><a href="/tags/quick2/">quick2</a><small>1</small></li>
+  
+    <li><a href="/tags/rowcount/">rowcount</a><small>1</small></li>
+  
+    <li><a href="/tags/smarty/">smarty</a><small>1</small></li>
+  
+    <li><a href="/tags/sqlite/">sqlite</a><small>2</small></li>
+  
+    <li><a href="/tags/str/">str</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>2</small></li>
+  
+    <li><a href="/tags/wiz/">wiz</a><small>1</small></li>
+  
+    <li><a href="/tags/中文乱码/">中文乱码</a><small>1</small></li>
+  
+    <li><a href="/tags/中文编码/">中文编码</a><small>1</small></li>
+  
+    <li><a href="/tags/乱码/">乱码</a><small>1</small></li>
+  
+    <li><a href="/tags/伪静态/">伪静态</a><small>1</small></li>
+  
+    <li><a href="/tags/佳能/">佳能</a><small>1</small></li>
+  
+    <li><a href="/tags/光圈/">光圈</a><small>1</small></li>
+  
+    <li><a href="/tags/分辨率/">分辨率</a><small>1</small></li>
+  
+    <li><a href="/tags/区别/">区别</a><small>1</small></li>
+  
+    <li><a href="/tags/反斜杠/">反斜杠</a><small>1</small></li>
+  
+    <li><a href="/tags/反锯齿/">反锯齿</a><small>1</small></li>
+  
+    <li><a href="/tags/可用性/">可用性</a><small>1</small></li>
+  
+    <li><a href="/tags/同步/">同步</a><small>1</small></li>
+  
+    <li><a href="/tags/启动/">启动</a><small>1</small></li>
+  
+    <li><a href="/tags/多线程/">多线程</a><small>1</small></li>
+  
+    <li><a href="/tags/字体/">字体</a><small>1</small></li>
+  
+    <li><a href="/tags/宠物/">宠物</a><small>4</small></li>
+  
+    <li><a href="/tags/小狗/">小狗</a><small>4</small></li>
+  
+    <li><a href="/tags/小痰盂/">小痰盂</a><small>1</small></li>
+  
+    <li><a href="/tags/张宴/">张宴</a><small>1</small></li>
+  
+    <li><a href="/tags/打印/">打印</a><small>1</small></li>
+  
+    <li><a href="/tags/打印队列/">打印队列</a><small>1</small></li>
+  
+    <li><a href="/tags/换肤/">换肤</a><small>1</small></li>
+  
+    <li><a href="/tags/插件/">插件</a><small>1</small></li>
+  
+    <li><a href="/tags/故障/">故障</a><small>1</small></li>
+  
+    <li><a href="/tags/有道云笔记/">有道云笔记</a><small>1</small></li>
+  
+    <li><a href="/tags/服务/">服务</a><small>1</small></li>
+  
+    <li><a href="/tags/本地化/">本地化</a><small>1</small></li>
+  
+    <li><a href="/tags/杀毒软件/">杀毒软件</a><small>1</small></li>
+  
+    <li><a href="/tags/淘宝/">淘宝</a><small>2</small></li>
+  
+    <li><a href="/tags/爬虫/">爬虫</a><small>2</small></li>
+  
+    <li><a href="/tags/窗口居中/">窗口居中</a><small>1</small></li>
+  
+    <li><a href="/tags/维修/">维修</a><small>1</small></li>
+  
+    <li><a href="/tags/编组/">编组</a><small>1</small></li>
+  
+    <li><a href="/tags/苏宁/">苏宁</a><small>1</small></li>
+  
+    <li><a href="/tags/虾米/">虾米</a><small>1</small></li>
+  
+    <li><a href="/tags/触摸板/">触摸板</a><small>1</small></li>
+  
+    <li><a href="/tags/触点/">触点</a><small>1</small></li>
+  
+    <li><a href="/tags/调试/">调试</a><small>1</small></li>
+  
+    <li><a href="/tags/路径/">路径</a><small>1</small></li>
+  
+    <li><a href="/tags/选择子/">选择子</a><small>1</small></li>
+  
+    <li><a href="/tags/重复/">重复</a><small>1</small></li>
+  
+    <li><a href="/tags/错误/">错误</a><small>1</small></li>
+  
+    <li><a href="/tags/闹闹/">闹闹</a><small>4</small></li>
+  
+    <li><a href="/tags/随机数/">随机数</a><small>1</small></li>
+  
+    <li><a href="/tags/静态编译/">静态编译</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 frankiez
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

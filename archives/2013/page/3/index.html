@@ -1,0 +1,753 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 3 页 | 归档：2013 | 超霸气软件研究所</title>
+  <meta name="author" content="frankiez">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="超霸气软件研究所"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="超霸气软件研究所" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">超霸气软件研究所</a></h1>
+  <h2><a href="/">研究前端技术</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2013</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-01T13:05:04.000Z"><a href="/2013/04/01/105/">4月 1 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/01/105/">慎用elementsByTagName()函数</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>今天在对基础parse模块进行单元测试，在用自建XML进行测试时发现了一些莫名的小bug。</p>
+<p>当然又是一顿查错，最后发现问题在于elementsByTagName函数，它竟然是大小写敏感（case insensitive）的！！这种着实下流的设计……也就是说找“Node1”是不会找到“node1”的。</p>
+<p>这样的话在调用各家的open api时，可靠性就完全依赖人品了，太不安全了，哎，基础模块小规模重构。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-31T19:47:58.000Z"><a href="/2013/04/01/103/">4月 1 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/01/103/">QPainter打印时映射的字体大小</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>映射倍数 = (double)设置纸张宽度 / (double)QPrinter.width();</p>
+<p>字体按pt计算缩放的方法：</p>
+<p>字体转换系数 = (double)QPrinter.physicalDpiX()/(double)72.00 * (double)映射倍数</p>
+<p>然后将字体的pt值 x 字体转换系数，得到映射放大后的字体像素大小，最后用QFont::setPixelSize()将此像素大小设置生效。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-31T18:35:42.000Z"><a href="/2013/04/01/101/">4月 1 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/01/101/">构建基于QtPlugin的DLL时应注意的事项</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>连示例代码都编译不过去的教程最差劲了！用Qt重构底层打印引擎时，想做成基于QtPlugin的插件，本来想偷懒不看英文，网上找了点中文教程看看，结果照着示例写一堆错啊，最后还是回头去看英文，时间一点没省……</p>
+<ol>
+<li>接口务必注意是纯虚函数，在函数声明后要加“= 0”</li>
+<li>在实现类中要#include &lt;QtPlugin&gt;，网上的教程是垃圾，不包含这个害我莫名的vtable错误调试半天。</li>
+<li>Q_EXPORT_PLUGIN2的第2个参数对应具体实现的插件类名字，不能随意起。同样的道理，Q_DECLARE_INTERFACE的第1个参数对应抽象接口类的名字，也不能随意起。<br>主要也就是这3条，MARK给自己看，同时也给其他写QtPlugin的桶子参考。</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-31T10:46:00.000Z"><a href="/2013/03/31/99/">3月 31 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/31/99/">自信过头的有道云笔记</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这个项目的资金我估计有八成是分配给美工了。UI很简洁漂亮（虽然这个简洁我后来发现是因为功能少造成的假象），但使用过程中发现了不少致命伤，在卸载之前写一下原因：</p>
+<p>1.对pc平台不重视<br>跨平台是主流，但摘录网页内容大多数情况下还是在PC上，PC的版本做得这么精简实在是太缺乏诚意了。竟然连官方的Firefox插件都没有提供！？</p>
+<p>2.空有暴发户的大容量空间，却不支持tag<br>这就像给你千兆的带宽却不让下载只能看网页一样，抓住中国人贪小便宜的心理玩了文字游戏，谁每个月能用得了2G的同步？在不支持tag的情况下查找资料变得非常困难，如果真的收集了2G的资料那仅仅用分类来管理真的太可怕了。</p>
+<p>3.莫名的自信和傲慢<br>evernote还是占了国内的绝对主流的，但同时还有其他的对手比如我使用的WIZ为知笔记、麦库等，作为后来者，有道云笔记只支持evernote的数据导入，其他对手不值得你关注？好牛啊。</p>
+<p>&nbsp;</p>
+<p>优点目前看到2个，界面实在好看，冲着这界面我才多用了几分钟，还有就是网易看起来不太容易倒闭，所以数据相对来说更安全些。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-30T15:01:24.000Z"><a href="/2013/03/30/96/">3月 30 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/30/96/">关于QPainter的drawText位置问题</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Qt的这个设计我实在不明白是用意何在。</p>
+<p>drawText有多个重载版本，以xy坐标（或直接用point）为位置参数的版本，定位在文字字体的底部基线处。</p>
+<p>而以RECT区域为位置参数的版本，定位在文字的上方了又。</p>
+<p>这是要闹哪样？MARK一下，以免自己忘记</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-24T05:52:55.000Z"><a href="/2013/03/24/92/">3月 24 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/24/92/">QSqlQuery的bindValue，占位符绑定不能多次匹配</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>写了个insert语句，因为最后部分用了“ON DUPLICATE KEY UPDATE”，所以值需要在整个语句中出现2次，用了ODBC的参数绑定方法，返回“Parameter count mismatch”错误。</p>
+<p><pre class="lang:c++ decode:true ">query.bindValue(“:var1”, var);</pre><br>于是查了Qt的帮助，赫然写着……</p>
+<p>Values cannot be bound to multiple locations in the query, eg:</p>
+<p><pre> INSERT INTO testtable (id, name, samename) VALUES (:id, :name, :name)</pre><br>Binding to name will bind to the first :name, but not the second.</p>
+<p>&nbsp;</p>
+<p>不能匹配多次-_-！！！</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-22T07:40:47.000Z"><a href="/2013/03/22/90/">3月 22 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/22/90/">Sqlite中的Boolean值初始化</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>项目的持久层现在用sqlite3来做，但非常讨厌的是建表时Boolean列的Default值初始化怎么都不对，填true、false或者True、False都报错（翻译过来大约是默认值初始化失败）。</p>
+<p>Google了一下原来sqlite中的Boolean值只有0（false）或1（true）两种状态，改成0后果然不报错了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-15T06:20:44.000Z"><a href="/2013/03/15/87/">3月 15 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/15/87/">QDir的mkdir和mkpath区别</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>都是创建目录，应该搞哪个好捏？</p>
+<p>mkdir：上层目录不存在时，创建会失败。比如创建“c:\12”，如果1不存在，那2也创建不了。目录已经存在时会返回false。</p>
+<p>mkpath：上层目录不存在也没关系，自动一起创建。目录已经存在时会返回true。</p>
+<p>&nbsp;</p>
+<p>嗯，这么看来，大多数情况下用mkpath比较方便。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-09T17:52:27.000Z"><a href="/2013/03/10/84/">3月 10 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/10/84/">Qt在Windows下的路径分隔符问题</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Qt在Windows下获取路径会得到形如“c://test/hello”的结果，显然这是适用于Unix的路径分隔符。<br>要在Windows下正常使用，必须转换为反斜杠。你可能已经想到了QString的replace，其实有更简单的方法。</p>
+<pre class="lang:c++ decode:true">QDir::toNativeSeparators()</pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-02-26T12:55:02.000Z"><a href="/2013/02/26/80/">2月 26 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/02/26/80/">VMWare 9.0.1安装Ubuntu 12.04的若干小问题解决</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>我本来以为这么主流的版本应该都兼容的，没想到还是有些小小问题要手工处理。网上流传的解决方法不完全正确，摸索了下把正确步骤分享给其他像我一样的Linux初学者。</p>
+<h4 id="1-启动和关机的时候出现的错误提示“Host_SMBus_controller_not_enabled”">1.启动和关机的时候出现的错误提示“Host SMBus controller not enabled”</h4>
+<p><strong>解决方法：</strong>Ctrl+Alt+T打开终端，执行命令</p>
+<p><pre class="lang:default decode:true">lsmod | grep i2c_piix4</pre><br>然后看返回结果，如果结果中包含这个i2c_piix4，那么接着用vi打开 /etc/modprobe.d/blacklist.conf（注意要用sudo打开），在末尾添加一行</p>
+<p><pre class="lang:default decode:true">blacklist i2c_piix4</pre><br>进入命令模式，用wq!保存（是只读文件）。</p>
+<p>&nbsp;</p>
+<h4 id="2-分辨率没有1920x1080">2.分辨率没有1920x1080</h4>
+<p><strong>解决方法：</strong>同样是打开终端，执行命令“cvt 1920 1080”，然后返回结果如下</p>
+<p><pre class="lang:default decode:true"># 1920x1080 59.96 Hz (CVT 2.07M9) hsync: 67.16 kHz; pclk: 173.00 MHz<br>Modeline “1920x1080_60.00” 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync</pre><br>根据返回结果，执行如下命令</p>
+<p><pre class="lang:default decode:true">sudo xrandr —newmode “1920x1080_60.00” 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync</pre><br>成功之后，网上的解决方法本来是说要再执行一下这条命令</p>
+<p><pre class="lang:default decode:true ">sudo xrandr —addmode VBOX0 “1920x1080_60.00”</pre><br>可是我死活不成功啊，总说没有这样的output。于是，我又执行了一下无参数的“xrandr”命令，得到output的名称实际上是“Virtual1”（见图），于是乎改了下命令之后就解决了，当然添加完之后记得要在“设置→显示”中选这个模式。</p>
+<p><pre class="lang:default decode:true">sudo xrandr —addmode Virtual1 “1920x1080_60.00”</pre><br>[caption id=”attachment_81” align=”aligncenter” width=”721”]<a href="http://super87.com/wp/wp-content/uploads/2013/02/ubuntu.jpg" target="_blank" rel="external"><img src="http://super87.com/wp/wp-content/uploads/2013/02/ubuntu.jpg" alt="xrandr显示的结果，可以看到正确的output名称"></a> xrandr显示的结果，可以看到正确的output名称[/caption]</p>
+<p>虽然只是小问题，但找解决方法的过程才是我等屌丝的乐趣所在啊~</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+    <a href="/archives/2013/page/2/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/archives/2013/page/4/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:super87.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/JS/">JS</a><small>2</small></li>
+  
+    <li><a href="/categories/Linux/">Linux</a><small>11</small></li>
+  
+    <li><a href="/categories/Linux/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/JS/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/categories/PHP/">PHP</a><small>5</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>7</small></li>
+  
+    <li><a href="/categories/Linux/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/categories/Linux/Qt/">Qt</a><small>2</small></li>
+  
+    <li><a href="/categories/Qt/">Qt</a><small>25</small></li>
+  
+    <li><a href="/categories/Qt/口胡/">口胡</a><small>1</small></li>
+  
+    <li><a href="/categories/口胡/">口胡</a><small>14</small></li>
+  
+    <li><a href="/categories/摄影/">摄影</a><small>1</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/BeautifulSoup/">BeautifulSoup</a><small>1</small></li>
+  
+    <li><a href="/tags/Controller/">Controller</a><small>1</small></li>
+  
+    <li><a href="/tags/Controller-Template/">Controller_Template</a><small>1</small></li>
+  
+    <li><a href="/tags/DOM/">DOM</a><small>1</small></li>
+  
+    <li><a href="/tags/Dpi/">Dpi</a><small>1</small></li>
+  
+    <li><a href="/tags/EVA/">EVA</a><small>1</small></li>
+  
+    <li><a href="/tags/Kohana/">Kohana</a><small>5</small></li>
+  
+    <li><a href="/tags/LPWSTR/">LPWSTR</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/NetBeans/">NetBeans</a><small>1</small></li>
+  
+    <li><a href="/tags/PyV8/">PyV8</a><small>1</small></li>
+  
+    <li><a href="/tags/QAbstractListModel/">QAbstractListModel</a><small>1</small></li>
+  
+    <li><a href="/tags/QDateTime/">QDateTime</a><small>1</small></li>
+  
+    <li><a href="/tags/QDir/">QDir</a><small>1</small></li>
+  
+    <li><a href="/tags/QDomNode/">QDomNode</a><small>2</small></li>
+  
+    <li><a href="/tags/QFont/">QFont</a><small>1</small></li>
+  
+    <li><a href="/tags/QNetworkAccessManager/">QNetworkAccessManager</a><small>1</small></li>
+  
+    <li><a href="/tags/QObject/">QObject</a><small>1</small></li>
+  
+    <li><a href="/tags/QSS/">QSS</a><small>1</small></li>
+  
+    <li><a href="/tags/QScrollArea/">QScrollArea</a><small>1</small></li>
+  
+    <li><a href="/tags/QSqlQuery/">QSqlQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/QString/">QString</a><small>1</small></li>
+  
+    <li><a href="/tags/QStringList/">QStringList</a><small>1</small></li>
+  
+    <li><a href="/tags/QThread/">QThread</a><small>1</small></li>
+  
+    <li><a href="/tags/QdesktopWidget/">QdesktopWidget</a><small>1</small></li>
+  
+    <li><a href="/tags/Qt/">Qt</a><small>25</small></li>
+  
+    <li><a href="/tags/QtCreator/">QtCreator</a><small>1</small></li>
+  
+    <li><a href="/tags/QtPlugin/">QtPlugin</a><small>1</small></li>
+  
+    <li><a href="/tags/SSL/">SSL</a><small>1</small></li>
+  
+    <li><a href="/tags/UEditor/">UEditor</a><small>1</small></li>
+  
+    <li><a href="/tags/UI/">UI</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>2</small></li>
+  
+    <li><a href="/tags/Validation/">Validation</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>1</small></li>
+  
+    <li><a href="/tags/avast/">avast!</a><small>1</small></li>
+  
+    <li><a href="/tags/bindValue/">bindValue</a><small>1</small></li>
+  
+    <li><a href="/tags/boolean/">boolean</a><small>1</small></li>
+  
+    <li><a href="/tags/bootstrap/">bootstrap</a><small>1</small></li>
+  
+    <li><a href="/tags/bsie/">bsie</a><small>1</small></li>
+  
+    <li><a href="/tags/bug/">bug</a><small>1</small></li>
+  
+    <li><a href="/tags/captcha/">captcha</a><small>1</small></li>
+  
+    <li><a href="/tags/ccleaner/">ccleaner</a><small>1</small></li>
+  
+    <li><a href="/tags/centos/">centos</a><small>1</small></li>
+  
+    <li><a href="/tags/drawText/">drawText</a><small>1</small></li>
+  
+    <li><a href="/tags/elementsByTagName/">elementsByTagName</a><small>1</small></li>
+  
+    <li><a href="/tags/evernote/">evernote</a><small>1</small></li>
+  
+    <li><a href="/tags/fedora/">fedora</a><small>1</small></li>
+  
+    <li><a href="/tags/findAll/">findAll</a><small>1</small></li>
+  
+    <li><a href="/tags/find-all/">find_all</a><small>1</small></li>
+  
+    <li><a href="/tags/g/">g++</a><small>1</small></li>
+  
+    <li><a href="/tags/gvim/">gvim</a><small>1</small></li>
+  
+    <li><a href="/tags/hashlib/">hashlib</a><small>1</small></li>
+  
+    <li><a href="/tags/http/">http</a><small>1</small></li>
+  
+    <li><a href="/tags/iframe/">iframe</a><small>1</small></li>
+  
+    <li><a href="/tags/jquery/">jquery</a><small>1</small></li>
+  
+    <li><a href="/tags/js/">js</a><small>1</small></li>
+  
+    <li><a href="/tags/list/">list</a><small>1</small></li>
+  
+    <li><a href="/tags/md5/">md5</a><small>1</small></li>
+  
+    <li><a href="/tags/minGW/">minGW</a><small>1</small></li>
+  
+    <li><a href="/tags/mkdir/">mkdir</a><small>1</small></li>
+  
+    <li><a href="/tags/mkpath/">mkpath</a><small>1</small></li>
+  
+    <li><a href="/tags/model/">model</a><small>1</small></li>
+  
+    <li><a href="/tags/nginx/">nginx</a><small>1</small></li>
+  
+    <li><a href="/tags/nodeValue/">nodeValue</a><small>1</small></li>
+  
+    <li><a href="/tags/oauth/">oauth</a><small>1</small></li>
+  
+    <li><a href="/tags/opengl/">opengl</a><small>2</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>1</small></li>
+  
+    <li><a href="/tags/post/">post</a><small>1</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/qDebug/">qDebug</a><small>1</small></li>
+  
+    <li><a href="/tags/qml/">qml</a><small>1</small></li>
+  
+    <li><a href="/tags/quick2/">quick2</a><small>1</small></li>
+  
+    <li><a href="/tags/rowcount/">rowcount</a><small>1</small></li>
+  
+    <li><a href="/tags/smarty/">smarty</a><small>1</small></li>
+  
+    <li><a href="/tags/sqlite/">sqlite</a><small>2</small></li>
+  
+    <li><a href="/tags/str/">str</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>2</small></li>
+  
+    <li><a href="/tags/wiz/">wiz</a><small>1</small></li>
+  
+    <li><a href="/tags/中文乱码/">中文乱码</a><small>1</small></li>
+  
+    <li><a href="/tags/中文编码/">中文编码</a><small>1</small></li>
+  
+    <li><a href="/tags/乱码/">乱码</a><small>1</small></li>
+  
+    <li><a href="/tags/伪静态/">伪静态</a><small>1</small></li>
+  
+    <li><a href="/tags/佳能/">佳能</a><small>1</small></li>
+  
+    <li><a href="/tags/光圈/">光圈</a><small>1</small></li>
+  
+    <li><a href="/tags/分辨率/">分辨率</a><small>1</small></li>
+  
+    <li><a href="/tags/区别/">区别</a><small>1</small></li>
+  
+    <li><a href="/tags/反斜杠/">反斜杠</a><small>1</small></li>
+  
+    <li><a href="/tags/反锯齿/">反锯齿</a><small>1</small></li>
+  
+    <li><a href="/tags/可用性/">可用性</a><small>1</small></li>
+  
+    <li><a href="/tags/同步/">同步</a><small>1</small></li>
+  
+    <li><a href="/tags/启动/">启动</a><small>1</small></li>
+  
+    <li><a href="/tags/多线程/">多线程</a><small>1</small></li>
+  
+    <li><a href="/tags/字体/">字体</a><small>1</small></li>
+  
+    <li><a href="/tags/宠物/">宠物</a><small>4</small></li>
+  
+    <li><a href="/tags/小狗/">小狗</a><small>4</small></li>
+  
+    <li><a href="/tags/小痰盂/">小痰盂</a><small>1</small></li>
+  
+    <li><a href="/tags/张宴/">张宴</a><small>1</small></li>
+  
+    <li><a href="/tags/打印/">打印</a><small>1</small></li>
+  
+    <li><a href="/tags/打印队列/">打印队列</a><small>1</small></li>
+  
+    <li><a href="/tags/换肤/">换肤</a><small>1</small></li>
+  
+    <li><a href="/tags/插件/">插件</a><small>1</small></li>
+  
+    <li><a href="/tags/故障/">故障</a><small>1</small></li>
+  
+    <li><a href="/tags/有道云笔记/">有道云笔记</a><small>1</small></li>
+  
+    <li><a href="/tags/服务/">服务</a><small>1</small></li>
+  
+    <li><a href="/tags/本地化/">本地化</a><small>1</small></li>
+  
+    <li><a href="/tags/杀毒软件/">杀毒软件</a><small>1</small></li>
+  
+    <li><a href="/tags/淘宝/">淘宝</a><small>2</small></li>
+  
+    <li><a href="/tags/爬虫/">爬虫</a><small>2</small></li>
+  
+    <li><a href="/tags/窗口居中/">窗口居中</a><small>1</small></li>
+  
+    <li><a href="/tags/维修/">维修</a><small>1</small></li>
+  
+    <li><a href="/tags/编组/">编组</a><small>1</small></li>
+  
+    <li><a href="/tags/苏宁/">苏宁</a><small>1</small></li>
+  
+    <li><a href="/tags/虾米/">虾米</a><small>1</small></li>
+  
+    <li><a href="/tags/触摸板/">触摸板</a><small>1</small></li>
+  
+    <li><a href="/tags/触点/">触点</a><small>1</small></li>
+  
+    <li><a href="/tags/调试/">调试</a><small>1</small></li>
+  
+    <li><a href="/tags/路径/">路径</a><small>1</small></li>
+  
+    <li><a href="/tags/选择子/">选择子</a><small>1</small></li>
+  
+    <li><a href="/tags/重复/">重复</a><small>1</small></li>
+  
+    <li><a href="/tags/错误/">错误</a><small>1</small></li>
+  
+    <li><a href="/tags/闹闹/">闹闹</a><small>4</small></li>
+  
+    <li><a href="/tags/随机数/">随机数</a><small>1</small></li>
+  
+    <li><a href="/tags/静态编译/">静态编译</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 frankiez
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
