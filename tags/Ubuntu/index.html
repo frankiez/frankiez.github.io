@@ -107,7 +107,7 @@
 <p><pre class="lang:default decode:true"># 1920x1080 59.96 Hz (CVT 2.07M9) hsync: 67.16 kHz; pclk: 173.00 MHz<br>Modeline “1920x1080_60.00” 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync</pre><br>根据返回结果，执行如下命令</p>
 <p><pre class="lang:default decode:true">sudo xrandr —newmode “1920x1080_60.00” 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync</pre><br>成功之后，网上的解决方法本来是说要再执行一下这条命令</p>
 <p><pre class="lang:default decode:true ">sudo xrandr —addmode VBOX0 “1920x1080_60.00”</pre><br>可是我死活不成功啊，总说没有这样的output。于是，我又执行了一下无参数的“xrandr”命令，得到output的名称实际上是“Virtual1”（见图），于是乎改了下命令之后就解决了，当然添加完之后记得要在“设置→显示”中选这个模式。</p>
-<p><pre class="lang:default decode:true">sudo xrandr —addmode Virtual1 “1920x1080_60.00”</pre><br>[caption id=”attachment_81” align=”aligncenter” width=”721”]<a href="http://super87.com/wp/wp-content/uploads/2013/02/ubuntu.jpg" target="_blank" rel="external"><img src="http://super87.com/wp/wp-content/uploads/2013/02/ubuntu.jpg" alt="xrandr显示的结果，可以看到正确的output名称"></a> xrandr显示的结果，可以看到正确的output名称[/caption]</p>
+<p><pre class="lang:default decode:true">sudo xrandr —addmode Virtual1 “1920x1080_60.00”</pre><br>[caption id=”attachment_81” align=”aligncenter” width=”721”]<a href="http://7vilmk.com1.z0.glb.clouddn.com/2013/02/ubuntu.jpg" target="_blank" rel="external"><img src="http://7vilmk.com1.z0.glb.clouddn.com/2013/02/ubuntu.jpg" alt="xrandr显示的结果，可以看到正确的output名称"></a> xrandr显示的结果，可以看到正确的output名称[/caption]</p>
 <p>虽然只是小问题，但找解决方法的过程才是我等屌丝的乐趣所在啊~</p>
 
       

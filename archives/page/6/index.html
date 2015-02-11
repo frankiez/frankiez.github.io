@@ -252,7 +252,7 @@
 <p><pre class="lang:default decode:true"># 1920x1080 59.96 Hz (CVT 2.07M9) hsync: 67.16 kHz; pclk: 173.00 MHz<br>Modeline “1920x1080_60.00” 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync</pre><br>根据返回结果，执行如下命令</p>
 <p><pre class="lang:default decode:true">sudo xrandr —newmode “1920x1080_60.00” 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync</pre><br>成功之后，网上的解决方法本来是说要再执行一下这条命令</p>
 <p><pre class="lang:default decode:true ">sudo xrandr —addmode VBOX0 “1920x1080_60.00”</pre><br>可是我死活不成功啊，总说没有这样的output。于是，我又执行了一下无参数的“xrandr”命令，得到output的名称实际上是“Virtual1”（见图），于是乎改了下命令之后就解决了，当然添加完之后记得要在“设置→显示”中选这个模式。</p>
-<p><pre class="lang:default decode:true">sudo xrandr —addmode Virtual1 “1920x1080_60.00”</pre><br>[caption id=”attachment_81” align=”aligncenter” width=”721”]<a href="http://super87.com/wp/wp-content/uploads/2013/02/ubuntu.jpg" target="_blank" rel="external"><img src="http://super87.com/wp/wp-content/uploads/2013/02/ubuntu.jpg" alt="xrandr显示的结果，可以看到正确的output名称"></a> xrandr显示的结果，可以看到正确的output名称[/caption]</p>
+<p><pre class="lang:default decode:true">sudo xrandr —addmode Virtual1 “1920x1080_60.00”</pre><br>[caption id=”attachment_81” align=”aligncenter” width=”721”]<a href="http://7vilmk.com1.z0.glb.clouddn.com/2013/02/ubuntu.jpg" target="_blank" rel="external"><img src="http://7vilmk.com1.z0.glb.clouddn.com/2013/02/ubuntu.jpg" alt="xrandr显示的结果，可以看到正确的output名称"></a> xrandr显示的结果，可以看到正确的output名称[/caption]</p>
 <p>虽然只是小问题，但找解决方法的过程才是我等屌丝的乐趣所在啊~</p>
 
       
@@ -287,7 +287,7 @@
     <div class="entry">
       
         <p>使用了几个QToolButton，设了Checkable属性，这样就能实现option同样的功能了。</p>
-<p>可是没找着group之类的属性，然后在designer界面中也没找着button group控件可以拖。本来还想实在不行的话只能手动修改ui文件了（XML格式），结果突然发现原来这么简单就可以搞定——选中要编在一组的所有按钮，然后你懂的，右键菜单里就有啊啊啊啊啊<a href="http://super87.com/?attachment_id=71" target="_blank" rel="external"><img src="http://super87.com/wp/wp-content/uploads/2013/01/buttongroup.png" alt="Qt按钮编组"></a></p>
+<p>可是没找着group之类的属性，然后在designer界面中也没找着button group控件可以拖。本来还想实在不行的话只能手动修改ui文件了（XML格式），结果突然发现原来这么简单就可以搞定——选中要编在一组的所有按钮，然后你懂的，右键菜单里就有啊啊啊啊啊<a href="http://super87.com/?attachment_id=71" target="_blank" rel="external"><img src="http://7vilmk.com1.z0.glb.clouddn.com/2013/01/buttongroup.png" alt="Qt按钮编组"></a></p>
 
       
     </div>
@@ -323,7 +323,7 @@
         <p>在Qt里要对界面进行修改实在是太方便了，和CSS极相似的QSS功能让一切变得非常直观。</p>
 <p>比如这次需要做一个按钮，平时只显示图标不显示边框，鼠标经过的时候背景填色并且边框圆角，然后按下的时候背景填色（与经过时不同的颜色），以往得在代码逻辑里写很多东西，但Qt中界面与逻辑可以完全分离，只需要在代码中为按钮加一个样式表即可。</p>
 <p><pre class="wrap:true lang:c++ decode:true crayon-selected">ui-&gt;quickbar-&gt;setStyleSheet(“.QToolButton{border-style:flat;} QToolButton:hover{background-color:#53BDFF;border-radius:5px;} QToolButton:pressed{background-color:#3399FF;border-radius:5px;} QToolButton:checked{background-color:#53BDFF;border-radius:5px;}”);</pre><br>其中，quickbar是我的按钮容器的名称，因为按钮是QToolButton类型，所以要选中容器中的所有此种按钮应使用选择子“.QToolButton”；而选择子“QToolButton:hover”则是代表设定QToolButton控件在鼠标hover（经过）时的样式。</p>
-<p>其他貌似都很好理解的，最终实现的效果如图：<a href="http://super87.com/?attachment_id=68" target="_blank" rel="external"><img src="http://super87.com/wp/wp-content/uploads/2013/01/23rc.png" alt="墨印客2.3RC"></a></p>
+<p>其他貌似都很好理解的，最终实现的效果如图：<a href="http://super87.com/?attachment_id=68" target="_blank" rel="external"><img src="http://7vilmk.com1.z0.glb.clouddn.com/2013/01/23rc.png" alt="墨印客2.3RC"></a></p>
 
       
     </div>

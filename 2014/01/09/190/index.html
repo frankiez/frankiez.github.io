@@ -65,11 +65,11 @@ result = func() #假设func就是js函数exec ‘lst=%s’%resultfor item in lst
     <div class="entry">
       
         <p>因为在用pyv8跑网页里的js，但是js返回的结果数组传递到了python中就变成了连在一起的str。</p>
-<p><a href="http://super87.com/wp/wp-content/uploads/2014/01/py_str.png" target="_blank" rel="external"><img src="http://super87.com/wp/wp-content/uploads/2014/01/py_str.png" alt="py_str"></a></p>
+<p><a href="http://7vilmk.com1.z0.glb.clouddn.com/2014/01/py_str.png" target="_blank" rel="external"><img src="http://7vilmk.com1.z0.glb.clouddn.com/2014/01/py_str.png" alt="py_str"></a></p>
 <p>&nbsp;</p>
 <p>于是需要转成list，该怎么搞捏？</p>
 <p><pre class="lang:python mark:2 decode:true " title="str转list">result = func() #假设func就是js函数<br>exec ‘lst=%s’%result<br>for item in lst:<br>    print item</pre><br>以下是结果：</p>
-<p><a href="http://super87.com/wp/wp-content/uploads/2014/01/py_list.png" target="_blank" rel="external"><img src="http://super87.com/wp/wp-content/uploads/2014/01/py_list.png" alt="py_list"></a></p>
+<p><a href="http://7vilmk.com1.z0.glb.clouddn.com/2014/01/py_list.png" target="_blank" rel="external"><img src="http://7vilmk.com1.z0.glb.clouddn.com/2014/01/py_list.png" alt="py_list"></a></p>
 
       
     </div>
