@@ -53,40 +53,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-01-17T18:00:01.000Z"><a href="/2014/01/18/204/">1月 18 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/01/18/204/">PyV8在多线程环境下会造成线程冻结的解决方法</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>PyV8并非线程安全，因此在多线程环境下需要加入全局锁。</p>
-<p>在需要使用PyV8运行JS的代码前，加入：</p>
-<pre class="lang:python decode:true  crayon-selected">with PyV8.JSLocker():</pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2014-01-17T10:36:52.000Z"><a href="/2014/01/17/202/">1月 17 2014</a></time>
       
       
@@ -411,6 +377,39 @@
 <p>In new code, you should use the lowercase versions, so <code>find_all</code>, etc.<br>嗯，翻译下大致的意思<br>这两个方法是完全相同的。大小写混合的版本（比如findAll,findAllNext,nextSibing）已经全部重命名以便适应《<a href="http://www.python.org/dev/peps/pep-0008/" target="_blank" rel="external">Python样式向导</a>》，不过为了方便起见，老的名字仍然可用。完整的列表可以参考《<a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/#method-names" target="_blank" rel="external">方法名</a>》。</p>
 <p>在新代码中，你应该使用小写版本，就像find_all这样的。</p>
 </blockquote>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-08-13T16:02:00.000Z"><a href="/2013/08/14/168/">8月 14 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/08/14/168/">Ubuntu12.04 彻底禁用触摸板</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>sudo gedit /etc/modprobe.d/blacklist.conf<br>末尾加入<br>blacklist psmouse<br>保存，重启</p>
 
       
     </div>

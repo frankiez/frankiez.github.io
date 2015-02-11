@@ -49,40 +49,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-04-18T01:16:10.000Z"><a href="/2013/04/18/123/">4月 18 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/18/123/">QObject: Cannot create children for a parent that is in a different thread</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>困扰了我一晚上，怀疑是插件机制的问题，然后把插件都去掉了，直接把代码写进线程里还是有问题。</p>
-<p>最后还是今天早上搞明白的，在run()里用new新建基于qobject的对象时，千万别传入this指针啊，那是主线程的指针，相当于在子线程里为主线程建立了对象，所以出现跨线程警告。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2013-04-17T11:00:11.000Z"><a href="/2013/04/17/121/">4月 17 2013</a></time>
       
       
@@ -381,6 +347,42 @@
 <p>3.莫名的自信和傲慢<br>evernote还是占了国内的绝对主流的，但同时还有其他的对手比如我使用的WIZ为知笔记、麦库等，作为后来者，有道云笔记只支持evernote的数据导入，其他对手不值得你关注？好牛啊。</p>
 <p>&nbsp;</p>
 <p>优点目前看到2个，界面实在好看，冲着这界面我才多用了几分钟，还有就是网易看起来不太容易倒闭，所以数据相对来说更安全些。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-30T15:01:24.000Z"><a href="/2013/03/30/96/">3月 30 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/30/96/">关于QPainter的drawText位置问题</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Qt的这个设计我实在不明白是用意何在。</p>
+<p>drawText有多个重载版本，以xy坐标（或直接用point）为位置参数的版本，定位在文字字体的底部基线处。</p>
+<p>而以RECT区域为位置参数的版本，定位在文字的上方了又。</p>
+<p>这是要闹哪样？MARK一下，以免自己忘记</p>
 
       
     </div>

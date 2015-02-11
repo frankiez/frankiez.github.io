@@ -53,42 +53,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-03-30T15:01:24.000Z"><a href="/2013/03/30/96/">3月 30 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/03/30/96/">关于QPainter的drawText位置问题</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Qt的这个设计我实在不明白是用意何在。</p>
-<p>drawText有多个重载版本，以xy坐标（或直接用point）为位置参数的版本，定位在文字字体的底部基线处。</p>
-<p>而以RECT区域为位置参数的版本，定位在文字的上方了又。</p>
-<p>这是要闹哪样？MARK一下，以免自己忘记</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2013-03-24T05:52:55.000Z"><a href="/2013/03/24/92/">3月 24 2013</a></time>
       
       
@@ -402,6 +366,44 @@
     <div class="entry">
       
         <p><pre class="lang:c++ decode:true ">#include &lt;QtDebug&gt;<br>//…<br>QString s = tr(“world”);<br>qDebug() &lt;&lt; tr(“hello “) &lt;&lt; s;</pre><br>很方便，可以像cout那样用。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-11-16T18:50:20.000Z"><a href="/2012/11/17/56/">11月 17 2012</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/11/17/56/">QDomNode的nodeValue()为空的原因与解决</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这几天在把之前基于VCL写的淘宝TOPSDK用Qt重构，涉及到XML解析的部分调试了很久。遇到QDomNode取值时一直为空的情况，最后发现是平时习惯的微软DOM与W3C标准的DOM有区别造成的。</p>
+<p>举个例子：</p>
+<p><pre class="lang:xhtml decode:true">&lt;tid&gt;<br>12345678<br>&lt;/tid&gt;</pre><br>在此处，如果此时变量node（类型为QDomNode）指向了“&lt;tid&gt;”，那么要取到“12345678”这个值不能直接用node.nodeValue，而要用<strong>node.firstChild().nodeValue()</strong>。</p>
+<p>这是为毛！？很多人可能不理解，其实在标准W3C的DOM中，12345678这个值是属于一个隐含的文本域节点中的，就是实际上是下面这样的（text标签仅为解释原理）：</p>
+<p><pre class="lang:xhtml decode:true">&lt;tid&gt;<br>&lt;text&gt;12345678&lt;/text&gt;<br>&lt;/tid&gt;</pre><br>微软下流就下流在各种业界标准他都想要小改一下，改得与标准不兼容而看起来又像那么回事。当初vj++想祸害java不能跨平台（没成功出了c#），人家用“/”他就非得用“”，别人搞3D是右手坐标系吧DirectX就非得用坑爹的左手坐标系。</p>
+<p>这个dom的区别对我影响不大，反正解析器是我来定的，只要根据当前解析器的标准来写就好，可是如果是做网站前端的就苦逼了，ajax需要写多余的兼容判断。</p>
 
       
     </div>

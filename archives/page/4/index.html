@@ -53,39 +53,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-08-13T16:02:00.000Z"><a href="/2013/08/14/168/">8月 14 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/08/14/168/">Ubuntu12.04 彻底禁用触摸板</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>sudo gedit /etc/modprobe.d/blacklist.conf<br>末尾加入<br>blacklist psmouse<br>保存，重启</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2013-08-03T14:08:03.000Z"><a href="/2013/08/03/164/">8月 3 2013</a></time>
       
       
@@ -421,6 +388,40 @@ int main(int argc, char *argv[])
         <p>原先一直是使徒造成的一冲，二冲，NERV想要阻止。看完了Q，发现自己完全搞错了，碇源堂这个老焚淡才是想促成冲击的幕后黑手啊。</p>
 <p>SEELE的目的很明确，可是碇源堂这个老焚淡到底在想些什么？人类补完并非最终目标？那他到底想实现什么？</p>
 <p>留的伏笔2015年才能揭晓，这太讨厌了。这次的预告片我一点儿都没信，因为破的时候放Q的预告片完全没有一个镜头对路的……<a href="http://7vilmk.com1.z0.glb.clouddn.com/2013/04/Evangelion-Shin01_37_5720130425-105516-0.png" target="_blank" rel="external"><img src="http://7vilmk.com1.z0.glb.clouddn.com/2013/04/Evangelion-Shin01_37_5720130425-105516-0-1024x576.png" alt="Evangelion Shin[01_37_57][20130425-105516-0]"></a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-18T01:16:10.000Z"><a href="/2013/04/18/123/">4月 18 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/18/123/">QObject: Cannot create children for a parent that is in a different thread</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>困扰了我一晚上，怀疑是插件机制的问题，然后把插件都去掉了，直接把代码写进线程里还是有问题。</p>
+<p>最后还是今天早上搞明白的，在run()里用new新建基于qobject的对象时，千万别传入this指针啊，那是主线程的指针，相当于在子线程里为主线程建立了对象，所以出现跨线程警告。</p>
 
       
     </div>
